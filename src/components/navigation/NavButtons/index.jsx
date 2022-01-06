@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavButton = () => {
+const NavButtons = () => {
   return (
-    <div className='NavButton'>
+    <div className='NavButtons'>
 
-      <div className='NavButtonBox'>
+      <div className='NavButtonsBox'>
         <Link to="/" >
           Accueil
         </Link>
       </div>
 
-      <div className='NavButtonBox'>
+      <div className='NavButtonsBox'>
         <Link to="/galeries">
           Galeries
         </Link>
       </div>
 
-      <div className='NavButtonBox'>
+      <div className='NavButtonsBox'>
         <Link to="/a-propos" >
           A propos
         </Link>
@@ -27,4 +27,4 @@ const NavButton = () => {
   );
 };
 
-export default NavButton;
+export default NavButtons;
