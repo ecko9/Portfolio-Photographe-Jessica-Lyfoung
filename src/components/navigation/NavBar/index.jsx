@@ -1,9 +1,12 @@
 import React from 'react';
+import NavButton from '../NavButton';
+import NavTitle from '../NavTitle';
 
 const NavBar = () => {
   return (
     <div className='NavBar'>
-      <h1>Jessica Lyfoung</h1>
+      <NavTitle />
+      <NavButton />
     </div>
   );
 };

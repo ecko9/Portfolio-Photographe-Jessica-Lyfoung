@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Home = () => {
+const Galleries = () => {
   return (
-    <div className='Home'>
-      <h1>Ma Sélection</h1>
+    <div className='Galleries'>
+      <h1>Galeries</h1>
       <p>PHOTOS</p>
       <p>PHOTOS</p>
       <p>PHOTOS</p>
@@ -30,4 +30,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Galleries;
