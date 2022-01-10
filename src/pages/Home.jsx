@@ -26,6 +26,19 @@ const Home = () => {
       <p>PHOTOS</p>
       <p>PHOTOS</p>
       <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
+      <p>PHOTOS</p>
     </div>
   );
 };

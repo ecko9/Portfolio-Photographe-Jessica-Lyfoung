@@ -58,3 +58,21 @@ body {
 i {
   padding: 5px;
 }
+
+
+.Galleries {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.photo {
+  margin: 5px;
+}
+
+.photo-gallery {
+  width:  100%;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
