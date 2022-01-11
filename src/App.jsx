@@ -5,6 +5,7 @@ import Home from 'pages/Home';
 import Galleries from 'pages/Galleries';
 import About from 'pages/About';
 import NotFound from 'pages/NotFound';
+import Gallery from 'components/Gallery';
 
 
 
@@ -16,7 +17,8 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='/galeries' exact element={<Galleries />} />
+          <Route path='/galleries' exact element={<Galleries />} />
+          <Route path='/galleries/:name' exact element={<Gallery />} />
           <Route path='/a-propos' exact element={<About />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

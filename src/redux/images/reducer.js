@@ -1,9 +1,36 @@
-import { FETCH_IMAGES_REQUEST, FETCH_IMAGES_ERROR, GET_IMAGES_SUCCESS } from "./types";
+import { FETCH_IMAGES_REQUEST, FETCH_IMAGES_ERROR, GET_GALLERY_SUCCESS } from "./types";
 
 const initialState = {
   loading: false,
   error: '',
-  images: []
+  galleries: [
+    {
+      name: "Portraits et Personnes",
+      images: []
+    },
+    {
+      name: "Paysages et Nature",
+      images: []
+    },
+    {
+      name: "Photos Insolites",
+      images: []
+    }
+  ]
+}
+
+const storeAGallery = (state, name, images) => {
+  let galleriesTmp = state.galleries.map(gallery => {
+    if (gallery.name.toLowerCase() === name.split("-").join(" "))
+      gallery.images = images
+    return gallery;
+  })
+
+  return {
+    ...state,
+    loading: false,
+    galleries: galleriesTmp
+  };
 }
 
 const imagesReducer = (state = initialState, action) => {
@@ -22,12 +49,8 @@ const imagesReducer = (state = initialState, action) => {
         error: action.error
       };
 
-    case GET_IMAGES_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        images: action.images
-      };
+    case GET_GALLERY_SUCCESS:
+      storeAGallery(state, action.name, action.images);
 
     default:
       return state;

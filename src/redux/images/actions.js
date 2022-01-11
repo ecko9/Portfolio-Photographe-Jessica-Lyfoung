@@ -1,4 +1,4 @@
-import { FETCH_IMAGES_REQUEST, FETCH_IMAGES_ERROR, GET_IMAGES_SUCCESS } from "./types";
+import { FETCH_IMAGES_REQUEST, FETCH_IMAGES_ERROR, GET_GALLERY_SUCCESS } from "./types";
 
 export const fetchImagesRequest = () => {
   return {
@@ -13,9 +13,10 @@ export const fetchImagesError = (error) => {
   }
 }
 
-export const getImagesSuccess = (images) => {
+export const getGallerySuccess = (images, name) => {
   return {
-    type: GET_IMAGES_SUCCESS,
-    images
+    type: GET_GALLERY_SUCCESS,
+    images,
+    name
   }
 }

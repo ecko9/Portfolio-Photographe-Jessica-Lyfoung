@@ -12,8 +12,8 @@ const NavButtons = () => {
       </div>
 
       <div className='NavButtonsBox'>
-        <Link to="/galeries">
-          Galeries
+        <Link to="/galleries">
+          Galleries
         </Link>
       </div>
 
