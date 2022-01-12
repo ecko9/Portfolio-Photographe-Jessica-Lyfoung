@@ -6,6 +6,7 @@ import Galleries from 'pages/Galleries';
 import About from 'pages/About';
 import NotFound from 'pages/NotFound';
 import Gallery from 'components/Gallery';
+import Footer from 'components/navigation/Footer';
 
 
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/a-propos' exact element={<About />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
+        <Footer />
       </Router>
 
     </div>

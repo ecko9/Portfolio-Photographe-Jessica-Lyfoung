@@ -8,7 +8,6 @@ const Galleries = () => {
 
   return (
     <div className='Galleries'>
-      <NavGalleries />
       <GalleryList />
     </div>
   );

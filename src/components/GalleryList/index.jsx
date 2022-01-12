@@ -9,7 +9,7 @@ const GalleryList = () => {
   return (
     <div className='GalleryList'>
       {galleries ? galleries.map(gallery => (
-        <GalleryCard name={gallery.name} key={gallery.name} />
+        <GalleryCard gallery={gallery} key={gallery.name} />
       )) : ""}
     </div>
   );
