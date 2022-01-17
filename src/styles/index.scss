@@ -16,123 +16,186 @@ body {
 
 .NavBar {
   width: 100%;
-  height: 200px;
-  padding-top: 60px;
-}
-
-.NavTitle {
-  width: 100%;
-  height: 70px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.NavButtons {
-  width: 100%;
-  height: 70px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  
-}
-
-.NavButtonsBox {
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.NavLogos {
-  width: 100%;
-  height: 55px;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-i {
-  padding: 5px;
-}
-
-
-.Galleries {
-  width: 100%;
-}
-
-.Gallery {
-  width: 100%;
-}
-
-.GalleryList {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-}
-
-.GalleryCard {
-  width: 300px;
   height: 300px;
+
+  .NavTitle {
+    width: 100%;
+    height: 170px;
+  
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .NavLogos {
+    width: 100%;
+    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    i {
+      padding: 5px;
+    }
+  }
+  .NavButtons {
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    .NavButtonsBox {
+      height: 100%;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
 }
 
-.card-overlay {
-  width: 100%;
-  height: 100%;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  
-  text-shadow: rgb(226, 226, 226) 0px 0px 3px;
-  z-index: 0;
-  background-color: rgba(255, 235, 205, 0.212);
-}
+
 
 .NavGalleries {
   width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.NavGalleriesButtonBox {
-  width: 80%;
-  height: 100%;
+  height: 80px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
+
+  .NavGalleriesButtonBoxLeft {
+    height: 100%;
+    width: 30%;
+    padding-right: 5%;
+    display: flex;
+    align-items: center;
+    transition: transform 1.5s;
+    .NavGalleriesButton {
+      height: 100%;
+      display: flex;
+      text-align: center;
+      align-items: center;
+    }
+    i {
+      padding: 3%;
+      transition: padding-right 1500ms linear;
+    }
+  }
+  .NavGalleriesButtonBoxLeft:hover {
+    border-right: 1px solid grey;
+    transform: translateX(30%);
+    i {
+      padding-right: 5%;
+    }
+  }
+
+  .NavGalleriesButtonBoxRight {
+    height: 100%;
+    width: 30%;
+    padding-left: 5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: transform 1.5s;
+    .NavGalleriesButton {
+      height: 100%;
+      padding-left: 5%;
+    }
+    i {
+      padding: 3%;
+      transition: padding-left 1500ms linear;
+    }
+  }
+  .NavGalleriesButtonBoxRight:hover {
+    border-left: 1px solid grey;
+    transform: translateX(-30%);
+    i {
+      padding-left: 5%;
+    }
+  }
 }
-.NavGalleriesButton {
-  height: 100%;
-  display: flex;
-  text-align: center;
-  align-items: center;
+
+.Galleries {
+  width: 100%;
+
+  .GalleryList {
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+  }
+
+  .GalleryCard {
+    width: 300px;
+    height: 300px;
+  
+    color: white;
+  
+    background-size: 100%;
+    background-position: center;
+    -webkit-transition: background-size 1500ms linear;
+    -moz-transition: background-size 1500 linear;
+    -o-transition: background-size 1500 linear;
+    -ms-transition: background-size 1500ms linear;
+    transition: background-size 1500ms linear;
+
+    .card-overlay {
+      width: 100%;
+      height: 100%;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      
+      z-index: 0;
+      background-color: rgba(10, 10, 10, 0.212);
+      transition: background-color 1500ms linear;
+    }
+    .card-overlay:hover {
+     background-color: rgba(14, 13, 13, 0.315);
+    }
+  }
+}
+.GalleryCard:hover {
+  background-size: 110%;
+  background-position: center;
 }
 
+.Gallery {
+  width: 100%;
 
-.Picture {
-  overflow: hidden;
-}
-
-.photo {
-  margin: 2px;
-}
-
-.photo-gallery {
-  width:  100%;
-
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  .photo-gallery {
+    width:  100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  
+    .Picture {
+      overflow: hidden;
+      margin-right: 4px;
+      margin-top: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  
+      .photo {
+        transition: transform 1.5s;
+      }
+      .photo:hover {
+        transform: translateY(-5%) scale(1.1);
+      }
+    }
+  }
 }

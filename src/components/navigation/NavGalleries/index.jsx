@@ -24,23 +24,27 @@ const NavGalleries = ({ index }) => {
           setNext(index + 1)
         }
       return;
+      // eslint-disable-next-line
     }, [index]
   )
 
   return (
-    < div className='NavGalleries' >
-      {
-        console.log("prev", prev),
-        console.log("index", index),
-        console.log("next", next)
-      }
+    <>
+
       {galleries &&
-        <div className='NavGalleriesButtonBox'>
-          <NavGalleryButton index={prev} />
-          <NavGalleryButton index={next} />
-        </div>
+        < div className='NavGalleries' >
+          <div className='NavGalleriesButtonBoxLeft navigation'>
+            <i class="fas fa-angle-left"></i>
+            <NavGalleryButton index={prev} />
+          </div>
+          <div className='NavGalleriesButtonBoxRight navigation'>
+            <NavGalleryButton index={next} />
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div >
       }
-    </div >
+    </>
+
   );
 };
 

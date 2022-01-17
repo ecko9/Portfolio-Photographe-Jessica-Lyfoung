@@ -22,6 +22,7 @@ const Picture = ({ image }) => {
 
   return (
     <div className='Picture'>
+      <div className='photo-overlay' />
       {selectImageSize()}
     </div>
   );
