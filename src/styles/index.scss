@@ -75,25 +75,29 @@ body {
 
   .NavGalleriesButtonBoxLeft {
     height: 100%;
-    width: 30%;
+    width: 25%;
     padding-right: 5%;
+
     display: flex;
+    justify-content: center;
     align-items: center;
-    transition: transform 1.5s;
+
+    transition: width 1.5s linear;
     .NavGalleriesButton {
       height: 100%;
       display: flex;
-      text-align: center;
+      justify-content: center;
       align-items: center;
+      text-align: center;
     }
     i {
-      padding: 3%;
+      padding-right: 3%;
       transition: padding-right 1500ms linear;
     }
   }
   .NavGalleriesButtonBoxLeft:hover {
     border-right: 1px solid grey;
-    transform: translateX(30%);
+    width: 35%;
     i {
       padding-right: 5%;
     }
@@ -101,24 +105,27 @@ body {
 
   .NavGalleriesButtonBoxRight {
     height: 100%;
-    width: 30%;
+    width: 25%;
     padding-left: 5%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    transition: transform 1.5s;
+    transition: width 1.5s linear;
     .NavGalleriesButton {
       height: 100%;
-      padding-left: 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     i {
-      padding: 3%;
+      padding-left: 3%;
       transition: padding-left 1500ms linear;
     }
   }
   .NavGalleriesButtonBoxRight:hover {
     border-left: 1px solid grey;
-    transform: translateX(-30%);
+    width: 35%;
     i {
       padding-left: 5%;
     }
