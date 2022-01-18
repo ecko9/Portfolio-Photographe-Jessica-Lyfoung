@@ -6,14 +6,16 @@ import { useDispatch } from 'react-redux';
 import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/images/actions';
 import { useSelector } from 'react-redux';
 import Picture from 'components/Picture';
+import DisplayPicture from 'components/DisplayPicture';
 
 const Gallery = () => {
 
   const { name } = useParams()
-  const dispatch = useDispatch();
+  const [galleryIndex, setGalleryIndex] = React.useState(null)
   const [images, setImages] = React.useState([])
-  const [index, setIndex] = React.useState(null)
+  const [focusedImageIndex, setFocusedImageIndex] = React.useState(null)
   const galleries = useSelector(state => state.imagesReducer.galleries)
+  const dispatch = useDispatch()
 
   React.useEffect(
     () => {
@@ -27,13 +29,12 @@ const Gallery = () => {
       const isStored = () => {
         for (let i = 0; i < galleries.length; i++) {
           if (matchName(galleries[i].name, name))
-            setIndex(i)
+            setGalleryIndex(i)
           if (matchName(galleries[i].name, name) && (galleries[i].images.length > 0)) {
             setImages(galleries[i].images)
             return true;
           }
         }
-
         return false;
       }
 
@@ -55,17 +56,23 @@ const Gallery = () => {
 
       fetchGallery()
       return;
+      // eslint-disable-next-line
     }, [name]
   )
 
+
+
   return (
     <div className='Gallery'>
-      {console.log(index)}
-      {index !== null && <NavGalleries index={index} />}
+
+      {images && <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex} images={images} />}
+
+      {galleryIndex !== null && <NavGalleries index={galleryIndex} />}
+
       <CloudinaryContext cloudName="projects-images">
         <div className='photo-gallery'>
-          {images && images.map(image => (
-            <Picture key={image.public_id} image={image} />
+          {images && images.map((image, i) => (
+            <Picture key={image.public_id} image={image} imageIndex={i} galleryIndex={galleryIndex} setFocusedImageIndex={setFocusedImageIndex} />
           ))}
         </div>
       </CloudinaryContext >

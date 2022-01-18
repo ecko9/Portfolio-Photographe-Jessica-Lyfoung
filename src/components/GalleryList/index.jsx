@@ -8,9 +8,9 @@ const GalleryList = () => {
 
   return (
     <div className='GalleryList'>
-      {galleries ? galleries.map(gallery => (
+      {galleries && galleries.map(gallery => (
         <GalleryCard gallery={gallery} key={gallery.name} />
-      )) : ""}
+      ))}
     </div>
   );
 };

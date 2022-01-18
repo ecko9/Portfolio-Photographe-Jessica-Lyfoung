@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Transformation } from 'cloudinary-react';
 
-const Picture = ({ image }) => {
+const Picture = ({ image, setFocusedImageIndex, imageIndex }) => {
 
   const selectImageSize = () => {
     if ((image.width * 300 / image.height) > Math.floor(window.screen.width)) {
@@ -21,8 +21,7 @@ const Picture = ({ image }) => {
   }
 
   return (
-    <div className='Picture'>
-      <div className='photo-overlay' />
+    <div className='Picture' onClick={e => setFocusedImageIndex(imageIndex)}>
       {selectImageSize()}
     </div>
   );

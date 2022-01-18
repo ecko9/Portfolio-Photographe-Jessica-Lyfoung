@@ -33,13 +33,13 @@ const NavGalleries = ({ index }) => {
 
       {galleries &&
         < div className='NavGalleries' >
-          <div className='NavGalleriesButtonBoxLeft navigation'>
-            <i class="fas fa-angle-left"></i>
+          <div className='NavGalleriesButtonBoxLeft'>
+            <i className="fas fa-angle-left"></i>
             <NavGalleryButton index={prev} />
           </div>
-          <div className='NavGalleriesButtonBoxRight navigation'>
+          <div className='NavGalleriesButtonBoxRight'>
             <NavGalleryButton index={next} />
-            <i class="fas fa-angle-right"></i>
+            <i className="fas fa-angle-right"></i>
           </div>
         </div >
       }
