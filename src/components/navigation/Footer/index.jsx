@@ -7,6 +7,7 @@ const Footer = () => {
     <div className='Footer'>
       <NavLogos />
       <Contact />
+      <div className='FooterDesignBlock'></div>
     </div>
   );
 };

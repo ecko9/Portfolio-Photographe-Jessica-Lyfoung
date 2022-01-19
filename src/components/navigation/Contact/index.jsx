@@ -10,10 +10,6 @@ const Contact = () => {
         <p>Instagram - JessNoodle</p>
         <p>Facebook - JiJiNoodle</p>
       </div>
-      <div className='contact-description'>
-        <p>Je pratique la photographie depuis ... DESCRIPTION ... N'hésitez pas à me contacter !
-        </p>
-      </div>
     </div>
   );
 };

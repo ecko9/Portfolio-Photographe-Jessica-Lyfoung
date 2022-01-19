@@ -1,26 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NavButtons = () => {
+
+  const navigate = useNavigate()
   return (
     <div className='NavButtons'>
 
-      <div className='NavButtonsBox'>
-        <Link to="/" >
+      <div className='NavButtonsBox' onClick={e => navigate("/")}>
+        <p>
           Accueil
-        </Link>
+        </p>
       </div>
 
-      <div className='NavButtonsBox'>
-        <Link to="/galleries">
+      <div className='NavButtonsBox' onClick={e => navigate("/galleries")}>
+        <div className='NavButtonsBoxBg'>
+        </div>
+        <p>
           Galleries
-        </Link>
+        </p>
       </div>
 
-      <div className='NavButtonsBox'>
-        <Link to="/a-propos" >
+      <div className='NavButtonsBox' onClick={e => navigate("/a-propos")}>
+        <div className='NavButtonsBoxBg'>
+        </div>
+        <p>
           A propos
-        </Link>
+        </p>
       </div>
 
     </div>

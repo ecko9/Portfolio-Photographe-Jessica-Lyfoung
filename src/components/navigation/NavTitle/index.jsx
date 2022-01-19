@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLogos from '../NavLogos';
+
 
 const NavTitle = () => {
   return (
@@ -7,7 +7,6 @@ const NavTitle = () => {
       <div className='NavTitle'>
         <h1>Jessica Lyfoung</h1>
       </div>
-      <NavLogos />
     </>
   );
 };

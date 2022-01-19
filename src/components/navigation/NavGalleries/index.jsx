@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import NavGalleryButton from '../NavGalleryButton';
 
 const NavGalleries = ({ index }) => {
 
-  const [prev, setPrev] = React.useState(0);
-  const [next, setNext] = React.useState(0);
+  const [prev, setPrev] = React.useState(null);
+  const [next, setNext] = React.useState(null);
   const galleries = useSelector(state => state.imagesReducer.galleries);
+  const navigate = useNavigate()
 
   React.useEffect(
     () => {
@@ -28,19 +30,26 @@ const NavGalleries = ({ index }) => {
     }, [index]
   )
 
+  const parametrizeGalleryName = (gallery) => {
+    return gallery.name.split(" ").join("-").toLowerCase()
+  }
+
   return (
     <>
-
       {galleries &&
         < div className='NavGalleries' >
-          <div className='NavGalleriesButtonBoxLeft'>
-            <i className="fas fa-angle-left"></i>
-            <NavGalleryButton index={prev} />
-          </div>
-          <div className='NavGalleriesButtonBoxRight'>
-            <NavGalleryButton index={next} />
-            <i className="fas fa-angle-right"></i>
-          </div>
+          {prev !== null &&
+            <div className='NavGalleriesButtonBoxLeft' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[prev])}`)}>
+              <i className="fas fa-angle-left"></i>
+              <NavGalleryButton index={prev} />
+            </div>
+          }
+          {next !== null &&
+            <div className='NavGalleriesButtonBoxRight' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[next])}`)}>
+              <NavGalleryButton index={next} />
+              <i className="fas fa-angle-right"></i>
+            </div>
+          }
         </div >
       }
     </>
