@@ -8,6 +8,7 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
 
   React.useEffect(
     () => {
+
       const createBigPictureUrl = (image) => {
         return "https://res.cloudinary.com/projects-images/image/upload/" + image.public_id
       }
@@ -32,12 +33,6 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
     <div className='big-picture' style={{ backgroundImage: `url(${imageUrl})` }} />
   )
 
-  const displayPrev = (e, prevIndex) => {
-    setFocusedImageIndex(prevIndex)
-    e.preventDefault()
-    e.stopPropagation()
-  }
-
   const transitionAnimation = (index) => {
     document.querySelector('div.big-picture').style.width = '0%';
     setTimeout(() => {
@@ -48,7 +43,6 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
 
   const displayNewPicture = (e, index) => {
     transitionAnimation(index)
-
     e.preventDefault()
     e.stopPropagation()
   }
@@ -60,13 +54,17 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
 
   return (
     <div className='DisplayPicture' onClick={e => stopDisplay(e)}>
+
       <div className='display-side-block'>
         {prevIndex !== null && <i className="fas fa-angle-left" onClick={e => displayNewPicture(e, prevIndex)}></i>}
       </div>
+
       {bigPictureUrl && bigPicture(bigPictureUrl)}
+
       <div className='display-side-block'>
         {nextIndex !== null && <i className="fas fa-angle-right" onClick={e => displayNewPicture(e, nextIndex)}></i>}
       </div>
+
     </div>
   );
 };
