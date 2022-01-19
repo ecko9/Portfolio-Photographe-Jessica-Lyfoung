@@ -174,24 +174,10 @@ body {
   background-position: center;
 }
 
-@keyframes display-picture-left {
-  0% {left: -100%}
-  100% {left: 0%}
-}
-@keyframes stop-display-picture-left {
-  0% {left: 0%}
-  100% {left: -100%}
-}
 
 .Gallery {
   width: 100%;
-
-  .display {
-    animation: display-picture-left 1s linear;
-  }
-  .stop {
-    animation: stop-display-picture-left 1s linear;
-  }
+  
   .DisplayPicture {
     position: fixed;
     width: 100%;
@@ -212,14 +198,28 @@ body {
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
+      transition: width 0.5s linear;
     }
 
-    i {
+    .display-side-block {
       width: 10%;
-      height: 80%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 10%;
+      background-color: rgba(0,0,0,0);
+      transition: background-color 1s linear;
+
+      i {
+        width: 100%;
+        height: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    i:hover {
+      background-color: rgba(246, 243, 243, 0.664);
+      color: rgb(0, 0, 0)
     }
   }
 

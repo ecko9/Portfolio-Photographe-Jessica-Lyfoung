@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Transformation } from 'cloudinary-react';
 
-const Picture = ({ image, setFocusedImageIndex, imageIndex }) => {
+const Picture = ({ image, setFocusedImageIndex, imageIndex, setDisplay }) => {
 
   const selectImageSize = () => {
     if ((image.width * 300 / image.height) > Math.floor(window.screen.width)) {
@@ -20,8 +20,13 @@ const Picture = ({ image, setFocusedImageIndex, imageIndex }) => {
     }
   }
 
+  const displayFocusedImageIndex = (imageIndex) => {
+    setFocusedImageIndex(imageIndex)
+    setDisplay(true)
+  }
+
   return (
-    <div className='Picture' onClick={e => setFocusedImageIndex(imageIndex)}>
+    <div className='Picture' onClick={e => displayFocusedImageIndex(imageIndex)}>
       {selectImageSize()}
     </div>
   );

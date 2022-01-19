@@ -14,6 +14,7 @@ const Gallery = () => {
   const [galleryIndex, setGalleryIndex] = React.useState(null)
   const [images, setImages] = React.useState([])
   const [focusedImageIndex, setFocusedImageIndex] = React.useState(null)
+  const [display, setDisplay] = React.useState(false)
   const galleries = useSelector(state => state.imagesReducer.galleries)
   const dispatch = useDispatch()
 
@@ -65,14 +66,14 @@ const Gallery = () => {
   return (
     <div className='Gallery'>
 
-      {images && <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex} images={images} />}
+      {images && display && <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex} images={images} setDisplay={setDisplay} />}
 
       {galleryIndex !== null && <NavGalleries index={galleryIndex} />}
 
       <CloudinaryContext cloudName="projects-images">
         <div className='photo-gallery'>
           {images && images.map((image, i) => (
-            <Picture key={image.public_id} image={image} imageIndex={i} galleryIndex={galleryIndex} setFocusedImageIndex={setFocusedImageIndex} />
+            <Picture key={image.public_id} image={image} imageIndex={i} galleryIndex={galleryIndex} setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay} />
           ))}
         </div>
       </CloudinaryContext >
