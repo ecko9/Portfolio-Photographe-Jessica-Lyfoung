@@ -8,7 +8,6 @@ const GalleryCard = ({ gallery }) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [image, setImage] = React.useState()
   const [imageUrl, setImageUrl] = React.useState("")
   const galleries = useSelector(state => state.imagesReducer.galleries)
 
@@ -19,7 +18,6 @@ const GalleryCard = ({ gallery }) => {
       const isStored = () => {
         for (let galleryTmp of galleries)
           if (galleryTmp.name === gallery.name && (galleryTmp.images.length > 0)) {
-            setImage(galleryTmp.images[0])
             setImageUrl(createUrl(galleryTmp.images[0]))
             return true;
           }
@@ -27,7 +25,7 @@ const GalleryCard = ({ gallery }) => {
       }
 
       const createUrl = (image) => {
-        return "https://res.cloudinary.com/projects-images/image/upload/w_300,ar_1:1,c_fill,g_auto/" + image.public_id
+        return "https://res.cloudinary.com/projects-images/image/upload/w_400,ar_1:1,c_fill,g_auto/" + image.public_id
       }
 
       const fetchGallery = async () => {
@@ -39,7 +37,6 @@ const GalleryCard = ({ gallery }) => {
             .then(response => {
               if (response.resources) {
                 dispatch(getGallerySuccess(response.resources, name))
-                setImage(response.resources[0])
                 setImageUrl(createUrl(response.resources[0]))
               }
               else

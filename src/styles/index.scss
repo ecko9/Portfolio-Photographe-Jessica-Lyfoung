@@ -1,3 +1,13 @@
+/*VAR*/
+$background-body: linear-gradient(to bottom, rgba(248, 246, 246, 0.8), rgba(255, 255, 255, 0.6));
+$background-main: linear-gradient(to right, rgba(255, 255, 255, 0.774), rgba(129, 127, 127, 0.329) 50%, rgba(255, 255, 255, 0.774) 100%);
+$background-animation-button-right: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9) 100%);
+$background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9) 100%);
+$black: rgba(0, 0, 0, 0.9);
+$black2: rgba(0, 0, 0, 0.6);
+$white: rgba(255, 255, 255, 0.9);
+$white2: rgba(255, 255, 255, 0.6);
+
 * {
   margin: 0%;
 }
@@ -9,22 +19,30 @@ body::-webkit-scrollbar {
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
   width: 100%;
+  min-width: 100vw;
+  height: 100%;
+  min-height: 100vh;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   overflow-x: hidden;
-  background: linear-gradient(to bottom, rgba(248, 246, 246, 0.801), rgba(255, 255, 255, 0.609));
+  background: $background-body;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 16vh;
 }
 
 .NavBar {
   width: 100%;
-  height: 300px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.061) 45%, rgba(0, 0, 0, 0.774) 100%);
-
+  height: 30vh;
+  background: $background-main;
+  border-bottom: 1px solid grey;
 
   .NavTitle {
     width: 100%;
     height: 67%;
-  
     
     display: flex;
     justify-content: center;
@@ -48,7 +66,7 @@ body {
       align-items: center;
       text-align: center;
 
-      background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.904) 100%);
+      background: $background-animation-button-right;
       background-size: 400%;
       background-position: left center;
       transition: 0.8s linear;
@@ -61,14 +79,12 @@ body {
       background-position: right center;
       width: 33%;
       p {
-        color: rgb(255, 255, 255);
+        color: $white;
         mix-blend-mode: difference;
       }
     }
   }
 }
-
-
 
 .NavGalleries {
   width: 100%;
@@ -77,9 +93,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border-bottom: 1px solid grey;
-  border-top: 1px solid grey;
+  background: $background-main;
 
   .NavGalleriesButtonBoxLeft {
     height: 100%;
@@ -91,7 +105,7 @@ body {
     align-items: center;
     text-align: end;
 
-    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.904) 100%);
+    background: $background-animation-button-left;
     background-size: 400%;
     background-position: right center;
     transition: 0.8s linear;
@@ -103,16 +117,17 @@ body {
   }
 
   .NavGalleriesButtonBoxLeft:hover {
+    border-top: 1px solid grey;
     border-right: 1px solid grey;
     width: 35%;
     background-position: left center;
     i {
       padding-right: 5%;
-      color: rgb(255, 255, 255);
+      color: $white;
       mix-blend-mode: difference;
     }
     p {
-      color: rgb(255, 255, 255);
+      color: $white;
       mix-blend-mode: difference;
     }
   }
@@ -126,7 +141,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.904) 100%);
+    background: $background-animation-button-right;
     background-size: 400%;
     background-position: left center;
     transition: 0.8s linear;
@@ -138,16 +153,17 @@ body {
   }
 
   .NavGalleriesButtonBoxRight:hover {
+    border-top: 1px solid grey;
     border-left: 1px solid grey;
     width: 35%;
     background-position: right center;
     i {
       padding-left: 5%;
-      color: rgb(255, 255, 255);
+      color: $white;
       mix-blend-mode: difference;
     }
     p {
-      color: rgb(255, 255, 255);
+      color: $white;
       mix-blend-mode: difference;
     }
   }
@@ -158,43 +174,43 @@ body {
 
 .Galleries {
   width: 100%;
+  height: 55%;
 
   .GalleryList {
     width: 100%;
-  
+    height: 100%;
+
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   .GalleryCard {
-    width: 300px;
-    height: 300px;
-  
-    color: white;
-  
-    background-size: 100%;
+    width: 400px;
+    height: 400px;
+    color: $white;
+    margin-top: 5px;
+    background-size: cover;
     background-position: center;
-    -webkit-transition: background-size 1500ms linear;
-    -moz-transition: background-size 1500 linear;
-    -o-transition: background-size 1500 linear;
-    -ms-transition: background-size 1500ms linear;
-    transition: background-size 1500ms linear;
+    background-repeat: no-repeat;
+    transition: background-size 0.8s linear;
 
     .card-overlay {
       width: 100%;
       height: 100%;
       
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       text-align: center;
       
       z-index: 0;
-      background-color: rgba(10, 10, 10, 0.212);
+      background-color: rgba(0, 0, 0, 0.3);
       transition: background-color 0.8s linear;
     }
     .card-overlay:hover {
-     background-color: rgba(14, 13, 13, 0.315);
+     background-color: $black2;
     }
   }
 }
@@ -206,16 +222,19 @@ body {
 
 .Gallery {
   width: 100%;
-
+  
   .GalleryTitle {
     width: 100%;
     height: 100px;
+    
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
-    border-bottom: 1px solid grey;
-    
+
+    background: $black;
+    color: $white;
+
     h2 {
       width: 33%;
     }
@@ -227,7 +246,7 @@ body {
     height: 100%;
     top: 0;
     left: -100%;
-    background-color: rgba(17, 16, 16, 0.664);
+    background-color: $black2;
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -253,7 +272,7 @@ body {
       i {
         width: 100%;
         height: 100%;
-        color: white;
+        color: $white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -261,22 +280,24 @@ body {
     }
 
     i:hover {
-      background-color: rgba(246, 243, 243, 0.664);
-      color: rgb(0, 0, 0)
+      background-color: $white2;
+      color: $black;
     }
   }
 
   .photo-gallery {
     width:  100%;
+    border-top: 1px solid grey;
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.061) 45%, rgba(0, 0, 0, 0.774) 100%);
+    background: $background-body;
 
     .Picture {
       overflow: hidden;
-      margin-right: 4px;
-      margin-top: 4px;
+      margin-right: 5px;
+      margin-top: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -293,13 +314,17 @@ body {
 }
 
 .Footer {
+  position: fixed;
+  top: 85%;
+  left: 0%;
   width: 100%;
-  height: 200px;
+  height: 15vh;
   border-top: 1px solid grey;
-
+  background: $background-main;
   .Contact {
     width: 100%;
     height: 75%;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,7 +336,5 @@ body {
   .FooterDesignBlock {
     height: 25%;
     width: 100%;
-    border-top: 1px solid grey;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.061) 45%, rgba(0, 0, 0, 0.774) 100%);
   }
 }
