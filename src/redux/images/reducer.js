@@ -6,14 +6,17 @@ const initialState = {
   galleries: [
     {
       name: "Portraits et Personnes",
+      description: "test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1",
       images: []
     },
     {
       name: "Paysages et Nature",
+      description: "test description 2",
       images: []
     },
     {
       name: "Photos Insolites",
+      description: "test description 3",
       images: []
     }
   ]
