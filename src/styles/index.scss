@@ -1,12 +1,17 @@
 /*VAR*/
-$background-body: linear-gradient(to bottom, rgba(248, 246, 246, 0.8), rgba(255, 255, 255, 0.6));
-$background-main: linear-gradient(to right, rgba(255, 255, 255, 0.774), rgba(129, 127, 127, 0.329) 50%, rgba(255, 255, 255, 0.774) 100%);
-$background-animation-button-right: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9) 100%);
-$background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9) 100%);
+
 $black: rgba(0, 0, 0, 0.9);
 $black2: rgba(0, 0, 0, 0.6);
+$black3: rgba(0, 0, 0, 0.3);
+$black4: rgba(0, 0, 0, 0.2);
 $white: rgba(255, 255, 255, 0.9);
 $white2: rgba(255, 255, 255, 0.6);
+$white3: rgba(255, 255, 255, 0.3);
+
+$background-body: linear-gradient(to bottom, rgba(248, 246, 246, 0.8), rgba(255, 255, 255, 0.6));
+$background-main: linear-gradient(to right, rgba(255, 255, 255, 0.774), rgba(129, 127, 127, 0.329) 50%, rgba(255, 255, 255, 0.774) 100%);
+$background-animation-button-right: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $white3, $white3 100%);
+$background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $white3, $white3 100%);
 
 * {
   margin: 0%;
@@ -111,7 +116,7 @@ body {
     background-size: 400%;
     background-position: right center;
     transition: 0.8s linear;
-
+    
     i {
       padding-right: 3%;
       transition: padding-right 0.8s linear;
@@ -119,17 +124,16 @@ body {
   }
 
   .NavGalleriesButtonBoxLeft:hover {
-    border-top: 1px solid grey;
     border-right: 1px solid grey;
     width: 35%;
     background-position: left center;
     i {
       padding-right: 5%;
-      color: $white;
+      color: white;
       mix-blend-mode: difference;
     }
     p {
-      color: $white;
+      color: white;
       mix-blend-mode: difference;
     }
   }
@@ -155,17 +159,16 @@ body {
   }
 
   .NavGalleriesButtonBoxRight:hover {
-    border-top: 1px solid grey;
     border-left: 1px solid grey;
     width: 35%;
     background-position: right center;
     i {
       padding-left: 5%;
-      color: $white;
+      color: white;
       mix-blend-mode: difference;
     }
     p {
-      color: $white;
+      color: white;
       mix-blend-mode: difference;
     }
   }
@@ -193,10 +196,10 @@ body {
     height: 400px;
     color: $white;
     margin-top: 5px;
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-size 0.8s linear;
+    transition: background-size 1.5s linear;
 
     .card-overlay {
       width: 100%;
@@ -208,7 +211,7 @@ body {
       text-align: center;
       
       z-index: 0;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0);
       transition: background-color 0.8s linear;
     }
     .card-overlay:hover {
@@ -231,14 +234,14 @@ body {
   .GalleryTitle {
     width: 100%;
     height: 100px;
+    border-bottom: 1px solid grey;
     
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
 
-    background: $black;
-    color: $white;
+    background: $black4;
 
     h2 {
       width: 33%;
@@ -323,22 +326,75 @@ body {
   min-height: 200px;
   border-top: 1px solid grey;
   margin-top: 5px;
+  padding-bottom: 5%;
   background: $background-main;
   flex: 2;
+  display: flex;
+  flex-direction: column;
+
   .Contact {
     width: 100%;
-    height: 75%;
+    height: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
     h2 {
       width: 100%;
+      height: 20%;
+
+      margin-top: 30px;
+      margin-bottom: 15px;
+
+      text-align: center;
     }
-  }
-  .FooterDesignBlock {
-    height: 25%;
-    width: 100%;
+
+    .contact-info {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      h3 {
+        width: 100%;
+        margin-bottom: 15px;
+
+        text-align: center;
+      }
+      h4 {
+        width: 100%;
+        
+        margin-bottom: 15px;
+        
+        text-align: center;
+      }
+
+      .networks {
+        height: 30%;
+        width: 100%;
+
+        padding-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        i {
+          width: 100%;
+          padding: 5px;
+          text-align: center;
+        }
+        p {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
   }
 }
