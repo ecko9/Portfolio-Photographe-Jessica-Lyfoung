@@ -4,7 +4,7 @@ import NavTitle from '../NavTitle';
 
 const NavBar = () => {
   return (
-    <div className='NavBar'>
+    <div className='NavBar' id='NavBar'>
       <NavTitle />
       <NavButtons />
     </div>

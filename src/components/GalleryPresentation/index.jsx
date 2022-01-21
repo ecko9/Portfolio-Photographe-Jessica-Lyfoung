@@ -36,7 +36,7 @@ const GalleryPresentation = ({ swapDesign, gallery }) => {
 
   return (
     <div className='GalleryPresentation'>
-      {console.log(images)}
+
       {images !== null && swapDesign === true &&
         <div className='alternative-design'>
 

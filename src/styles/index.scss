@@ -18,7 +18,7 @@ $background-secondary: linear-gradient(to right, $pink2, $pink 50%, $pink2 100%)
 $background-animation-button-right: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $white3, $white3 100%);
 $background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $white3, $white3 100%);
 
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display&display=swap');
 
 * {
   margin: 0%;
@@ -34,9 +34,17 @@ body {
   min-width: 100vw;
   height: 100%;
   min-height: 100vh;
+  h1, h2, h3, h4 {
+    font-family: 'Lobster';
+  }
+  
+  p {
+    font-family: 'Playfair Display';
+  }
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   overflow-x: hidden;
+
   background: $background-body;
 }
 
@@ -48,6 +56,8 @@ body {
   flex-direction: column;
 }
 
+
+
 .NavBar {
   width: 100%;
   height: 250px;
@@ -57,11 +67,20 @@ body {
   .NavTitle {
     width: 100%;
     height: 67%;
-    
+    color: pink;
+    text-shadow: 0 0 10px black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+  .active-nav {
+
+    h3 {
+      &::after {
+        width: 100%;
+      }
+    }
   }
 
   .NavButtons {
@@ -85,16 +104,50 @@ body {
       background-position: left center;
       transition: 0.8s linear;
     }
-    p {
-      z-index: 2;
+    .active-nav > h3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding-bottom: 8px;
+      &::after {
+        position: absolute;
+        bottom: 0;
+        content: "";
+        width: 100%;
+        background-color: rgba(255, 192, 203, 0.7);
+        height: 5px;
+        transition: width 1s linear;
+      }
+      
+    }
+    h3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding-bottom: 8px;
+      &::after {
+        position: absolute;
+        bottom: 0;
+        content: "";
+        width: 0%;
+        background-color: rgba(255, 192, 203, 0.7);
+        height: 5px;
+        transition: width 1s linear;
+      }
     }
     .NavButtonsBox:hover {
-      border: 1px solid grey;
       background-position: right center;
-      width: 33%;
-      p {
-        color: $white;
-        mix-blend-mode: difference;
+      
+      h3 {
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
@@ -139,12 +192,22 @@ body {
     .background-body {
       background: $background-body;
     }
+
+    @media screen and (min-width: 1700px) {
+      .text-presentation {
+        width: 20%;
+      }
+      .photo-presentation {
+        width: 40%;
+      }
+    }
+
     @media screen and (min-width: 700px) {
       .text-presentation {
         width: 30%;
       }
       .photo-presentation {
-        width: 60%;
+        width: 50%;
       }
     }
 
@@ -166,14 +229,19 @@ body {
       overflow: scroll;
 
       h3 {
+        width: 80%;
+        height: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
       }
 
       p {
-        width: 90%;
-        height: 55%;
-        margin-top: 10%;
-        margin-bottom: 5%;
+        width: 80%;
+        height: 65%;
+        
+        margin-bottom: 8%;
         text-align: center;
         overflow: scroll;
       }
@@ -470,6 +538,7 @@ body {
     align-items: center;
     background: $background-secondary;
     p {
+      border: 1px solid grey;
       height: 80%;
       width: 50%;
       text-align: center;

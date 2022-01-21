@@ -8,7 +8,7 @@ const NavGalleryButton = ({ index }) => {
   return (
     <>
       {galleries && <div className='NavGalleryButton' >
-        <p>{galleries[index].name}</p>
+        <h3>{galleries[index].name}</h3>
       </div>}
     </>
   );
