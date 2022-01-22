@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className='About'>
       <div className='description'>
-        <p>Je pratique la photographie depuis ... Mon travail s'oriente sur ...  Mon travail s'oriente sur ...  Mon travail s'oriente sur ...  Mon travail s'oriente sur ...  Mon travail s'oriente sur ...  Mon travail s'oriente sur ...</p>
+        <p>DESCRIPTION</p>
       </div>
     </div>
   );

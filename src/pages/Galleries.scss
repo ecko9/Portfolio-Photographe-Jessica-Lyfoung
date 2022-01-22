@@ -1,0 +1,228 @@
+.Galleries {
+  width: 100%;
+  height: 55%;
+  background: $background-secondary;
+  padding-bottom: 5px;
+  .GalleryList {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .GalleryCard {
+    width: 400px;
+    height: 400px;
+    color: $white;
+    margin-top: 5px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-size 1.5s linear;
+
+    .card-overlay {
+      width: 100%;
+      height: 100%;
+      
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      
+      z-index: 0;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.8s linear;
+    }
+    .card-overlay:hover {
+     background-color: $black2;
+    }
+  }
+}
+.GalleryCard:hover {
+  background-size: 110%;
+  background-position: center;
+}
+
+.Gallery::-webkit-scrollbar {
+  display: none;
+}
+.Gallery {
+  width: 100%;
+  height: 55%;
+  
+  .GalleryTitle {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid grey;
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    background: $black4;
+
+    h2 {
+      width: 33%;
+    }
+  }
+  
+  .DisplayPicture {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: $black2;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    transition: left 1s linear;
+
+    .big-picture {
+      width: 80%;
+      height: 80%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: width 0.5s linear;
+    }
+
+    .display-side-block {
+      width: 10%;
+      height: 10%;
+      background-color: rgba(0,0,0,0);
+      transition: background-color 1s linear;
+
+      i {
+        width: 100%;
+        height: 100%;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    i:hover {
+      background-color: $white2;
+      color: $black;
+    }
+  }
+
+  .photo-gallery {
+    width:  100%;
+    border-top: 1px solid grey;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: $background-secondary;
+
+    .Picture {
+      overflow: hidden;
+      margin-right: 5px;
+      margin-top: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  
+      .photo {
+        transition: transform 1.5s;
+      }
+      .photo:hover {
+        transform: translateY(-5%) scale(1.1);
+      }
+    }
+  }
+}
+
+.NavGalleries {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $background-main;
+
+  .NavGalleriesButtonBoxLeft {
+    height: 100%;
+    width: 25%;
+    padding-right: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+
+    background: $background-animation-button-left;
+    background-size: 400%;
+    background-position: right center;
+    transition: 0.8s linear;
+    
+    i {
+      padding-right: 3%;
+      transition: padding-right 0.8s linear;
+    }
+  }
+
+  .NavGalleriesButtonBoxLeft:hover {
+    border-right: 1px solid grey;
+    width: 35%;
+    background-position: left center;
+    i {
+      padding-right: 5%;
+      color: white;
+      mix-blend-mode: difference;
+    }
+    p {
+      color: white;
+      mix-blend-mode: difference;
+    }
+  }
+
+  .NavGalleriesButtonBoxRight {
+    height: 100%;
+    width: 25%;
+    padding-left: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: $background-animation-button-right;
+    background-size: 400%;
+    background-position: left center;
+    transition: 0.8s linear;
+    
+    i {
+      padding-left: 3%;
+      transition: padding-left 0.8s linear;
+    }
+  }
+
+  .NavGalleriesButtonBoxRight:hover {
+    border-left: 1px solid grey;
+    width: 35%;
+    background-position: right center;
+    i {
+      padding-left: 5%;
+      color: white;
+      mix-blend-mode: difference;
+    }
+    p {
+      color: white;
+      mix-blend-mode: difference;
+    }
+  }
+  .NavGalleriesButton {
+    height: 100%;
+  }
+}

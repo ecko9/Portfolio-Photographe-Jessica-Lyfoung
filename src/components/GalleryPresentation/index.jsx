@@ -25,54 +25,27 @@ const GalleryPresentation = ({ swapDesign, gallery }) => {
       }
       else
         setImages(gallery.images)
-
       return;
     }, []
   )
 
   const createUrl = (image) => {
-    return "https://res.cloudinary.com/projects-images/image/upload/" + image.public_id
+    return "https://res.cloudinary.com/projects-images/image/upload/h_2000,ar_1:1,c_fit/" + image.public_id
   }
 
   return (
     <div className='GalleryPresentation'>
 
-      {images !== null && swapDesign === true &&
-        <div className='alternative-design'>
+      {images !== null &&
+        <div className={swapDesign ? 'design background-main' : 'design'}>
 
-          <div className='photo-presentation background-body'>
-            <div className='triple-photo'>
-              <div className='photo-presentation-lg' style={{ backgroundImage: `url(${createUrl(images[0])})` }} />
-              <div className='double-photo'>
-                <div className='photo-presentation-md' style={{ backgroundImage: `url(${createUrl(images[1])})` }} />
-                <div className='photo-presentation-md' style={{ backgroundImage: `url(${createUrl(images[2])})` }} />
-              </div>
-            </div>
+          <div className={swapDesign ? 'photo-presentation background-body' : 'photo-presentation background-main'}>
+            <div className='photo-presentation-lg' style={{ backgroundImage: `url(${createUrl(images[0])})` }} />
           </div>
 
-          <div className='text-presentation background-body'>
+          <div className={swapDesign ? 'text-presentation template-left' : 'text-presentation template-right'}>
             <h3>{gallery.name}</h3>
             <p>{gallery.description}</p>
-          </div>
-
-        </div>
-      }
-      {images !== null && swapDesign === false &&
-        <div className='classic-design' >
-
-          <div className='text-presentation background-main'>
-            <h3>{gallery.name}</h3>
-            <p>{gallery.description}</p>
-          </div>
-
-          <div className='photo-presentation background-main'>
-            <div className='triple-photo'>
-              <div className='photo-presentation-lg' style={{ backgroundImage: `url(${createUrl(images[0])})` }} />
-              <div className='double-photo'>
-                <div className='photo-presentation-md' style={{ backgroundImage: `url(${createUrl(images[1])})` }} />
-                <div className='photo-presentation-md' style={{ backgroundImage: `url(${createUrl(images[2])})` }} />
-              </div>
-            </div>
           </div>
 
         </div>
