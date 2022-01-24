@@ -23,48 +23,25 @@
   .animation-load-img-right {
     animation: 1s linear 1 both animation-load-img-right;
   }
-
-  @media screen and (min-width: 1800px) {
-
-    @keyframes animation-load-text-left {
-      0% {left: -50%;}
-      100% {left: 10%;}
-    }
-    @keyframes animation-load-text-right {
-      0% {right: -50%;}
-      100% {right: 10%;}
-    }
-    @keyframes animation-load-img-left {
-      0% {left: -100%;}
-      100% {left: 10%;}
-    }
-    @keyframes animation-load-img-right {
-      0% {left: 100%;}
-      100% {left: 10%;}
-    }
-
-    .design {
-      min-height: 600px;
-    }
-    .text-presentation {
-      width: 30%;
-    }
-    .template-left {
-      bottom: 0%;
-      left: 10%;
-    }
-    .template-right {
-      bottom: 0%;
-      right: 10%;
-    }
-    .photo-presentation {
-      width: 80%;
-      height: 600px;
-      left: 10%;
-    }
+  .animation-swap-img-left {
+    animation: 1s linear 5s infinite both alternate animation-swap-img-left;
+  }
+  .animation-swap-img-right {
+    animation: 1s linear 5s infinite both alternate animation-swap-img-right;
+  }
+  .paused {
+    animation-play-state: paused;
+  }
+  .running {
+    animation-play-state: running;
   }
 
-  @media screen and (min-width: 700px) and (max-width: 1800px) {
+
+  
+
+
+
+  @media screen and (min-width: 700px) {
    
     @keyframes animation-load-text-left {
       0% {left: -60%;}
@@ -82,9 +59,21 @@
       0% {left: 110%;}
       100% {left: 0%;}
     }
+    @keyframes animation-swap-img-left {
+      0% {left: 0%;}
+      10% {left: 0%;}
+      90% {left: 100%;}
+      100% {left: 100%;}
+    }
+    @keyframes animation-swap-img-right {
+      0% {left: 0%;}
+      10% {left: 0%;}
+      90% {left: -100%;}
+      100% {left: -100%;}
+    }
 
     .design {
-      min-height: 600px;
+      min-height: 1000px;
     }
     .text-presentation {
       width: 40%;
@@ -99,8 +88,16 @@
     }
     .photo-presentation {
       width: 100%;
-      height: 600px;
+      height: 1000px;
       left: 0%;
+    }
+    .active-right {
+      top: 0%;
+      left: 100%;
+    }
+    .active-left {
+      top: 0%;
+      left: -100%;
     }
   }
 
@@ -122,12 +119,20 @@
       0% {left: 110%;}
       100% {left: 0%;}
     }
+    @keyframes animation-swap-img-left {
+      0% {left: 0%;}
+      100% {left: 100%;}
+    }
+    @keyframes animation-swap-img-right {
+      0% {left: 0%;}
+      100% {left: -100%;}
+    }
 
     .design {
       min-height: 400px;
     }
     .text-presentation {
-      width: 50%;
+      width: 70%;
     }
     .template-left {
       bottom: 0%;
@@ -141,6 +146,14 @@
       width: 100%;
       height: 400px;
       left: 0%;
+    }
+    .active-right {
+      top: 0%;
+      left: 100%;
+    }
+    .active-left {
+      top: 0%;
+      left: -100%;
     }
   }
 
@@ -163,7 +176,7 @@
       .text-presentation {
         position: absolute;
 
-        height: 50%;
+        height: 60%;
         z-index: 2;
 
         display: flex;
@@ -205,13 +218,10 @@
         align-items: center;
 
         .active {
-          top: 0;
-          left: 0;
-        }
-        .active2 {
           top: 0%;
-          left: -120%;
+          left: 0%;
         }
+        
         .photo-presentation-lg {
           position: absolute;
           

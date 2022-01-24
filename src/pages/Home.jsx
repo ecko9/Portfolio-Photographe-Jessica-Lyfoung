@@ -9,11 +9,11 @@ const Home = () => {
   const selectGalleryDesignPresentation = (gallery, i) => {
     if (i === 0 || i % 2 === 0)
       return (
-        <GalleryPresentation swapDesign={false} gallery={gallery} key={i} />
+        <GalleryPresentation swapDesign={false} gallery={gallery} key={i} index={i} />
       )
     else
       return (
-        <GalleryPresentation swapDesign={true} gallery={gallery} key={i} />
+        <GalleryPresentation swapDesign={true} gallery={gallery} key={i} index={i} />
       )
   }
 
