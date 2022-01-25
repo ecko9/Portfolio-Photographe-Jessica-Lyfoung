@@ -19,6 +19,7 @@ const Home = () => {
 
   return (
     <div className='Home'>
+      <div className='overlay' />
       {galleries && galleries.map((gallery, i) => (
         selectGalleryDesignPresentation(gallery, i)
       ))}

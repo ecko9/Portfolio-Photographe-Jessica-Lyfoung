@@ -1,5 +1,8 @@
 .Home {
   width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
 
   .background-main {
     background: $background-secondary;
@@ -32,131 +35,57 @@
   .paused {
     animation-play-state: paused;
   }
-  .running {
-    animation-play-state: running;
+
+  @keyframes animation-load-text-left {
+    0% {left: -60%;}
+    100% {left: 0%;}
   }
-
-
-  
-
-
+  @keyframes animation-load-text-right {
+    0% {right: -60%;}
+    100% {right: 0%;}
+  }
+  @keyframes animation-load-img-left {
+    0% {left: -110%;}
+    100% {left: 0%;}
+  }
+  @keyframes animation-load-img-right {
+    0% {left: 110%;}
+    100% {left: 0%;}
+  }
+  @keyframes animation-swap-img-left {
+    0% {left: 0%;}
+    10% {left: 0%;}
+    90% {left: 100%;}
+    100% {left: 100%;}
+  }
+  @keyframes animation-swap-img-right {
+    0% {left: 0%;}
+    10% {left: 0%;}
+    90% {left: -100%;}
+    100% {left: -100%;}
+  }
 
   @media screen and (min-width: 700px) {
    
-    @keyframes animation-load-text-left {
-      0% {left: -60%;}
-      100% {left: 0%;}
-    }
-    @keyframes animation-load-text-right {
-      0% {right: -60%;}
-      100% {right: 0%;}
-    }
-    @keyframes animation-load-img-left {
-      0% {left: -110%;}
-      100% {left: 0%;}
-    }
-    @keyframes animation-load-img-right {
-      0% {left: 110%;}
-      100% {left: 0%;}
-    }
-    @keyframes animation-swap-img-left {
-      0% {left: 0%;}
-      10% {left: 0%;}
-      90% {left: 100%;}
-      100% {left: 100%;}
-    }
-    @keyframes animation-swap-img-right {
-      0% {left: 0%;}
-      10% {left: 0%;}
-      90% {left: -100%;}
-      100% {left: -100%;}
-    }
-
-    .design {
-      min-height: 1000px;
-    }
     .text-presentation {
-      width: 40%;
-    }
-    .template-left {
-      bottom: 0%;
-      left: 0%;
-    }
-    .template-right {
-      bottom: 0%;
-      right: 0%;
-    }
-    .photo-presentation {
-      width: 100%;
-      height: 1000px;
-      left: 0%;
-    }
-    .active-right {
-      top: 0%;
-      left: 100%;
-    }
-    .active-left {
-      top: 0%;
-      left: -100%;
-    }
+      width: 33%;
+    }   
   }
 
   @media screen and (max-width: 700px) {
 
-    @keyframes animation-load-text-left {
-      0% {left: -60%;}
-      100% {left: 0%;}
-    }
-    @keyframes animation-load-text-right {
-      0% {right: -60%;}
-      100% {right: 0%;}
-    }
-    @keyframes animation-load-img-left {
-      0% {left: -110%;}
-      100% {left: 0%;}
-    }
-    @keyframes animation-load-img-right {
-      0% {left: 110%;}
-      100% {left: 0%;}
-    }
-    @keyframes animation-swap-img-left {
-      0% {left: 0%;}
-      100% {left: 100%;}
-    }
-    @keyframes animation-swap-img-right {
-      0% {left: 0%;}
-      100% {left: -100%;}
-    }
-
-    .design {
-      min-height: 400px;
-    }
     .text-presentation {
-      width: 70%;
-    }
-    .template-left {
-      bottom: 0%;
-      left: 0%;
-    }
-    .template-right {
-      bottom: 0%;
-      right: 0%;
-    }
-    .photo-presentation {
       width: 100%;
-      height: 400px;
-      left: 0%;
-    }
-    .active-right {
-      top: 0%;
-      left: 100%;
-    }
-    .active-left {
-      top: 0%;
-      left: -100%;
-    }
+    }  
   }
-
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
   .GalleryPresentation {
     width: 100%;
     
@@ -166,6 +95,7 @@
       left: 0;
       
       width: 100%;
+      min-height: 80vh;
 
       display: flex;
       flex-direction: row;
@@ -173,6 +103,23 @@
       align-items: center;
       flex-wrap: wrap;
 
+      .active-right {
+        top: 0%;
+        left: 100%;
+      }
+      .active-left {
+        top: 0%;
+        left: -100%;
+      }
+
+      .template-left {
+        bottom: 0%;
+        left: 0%;
+      }
+      .template-right {
+        bottom: 0%;
+        right: 0%;
+      }
       .text-presentation {
         position: absolute;
 
@@ -211,7 +158,11 @@
       }
       .photo-presentation {
         position: absolute;
-        top: 0;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        
 
         display: flex;
         justify-content: center;

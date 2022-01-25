@@ -59,7 +59,7 @@ const GalleryPresentation = ({ swapDesign, gallery, index }) => {
 
     setIndexSwap(!indexSwap)
 
-    setTimeout(async () => {
+    setTimeout(() => {
       document.querySelector(`div#photo-presentation-${index}`).classList.remove('paused')
     }, 5000)
   }
