@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/images/actions';
 
 const GalleryPresentation = ({ swapDesign, gallery, index }) => {
@@ -9,6 +10,7 @@ const GalleryPresentation = ({ swapDesign, gallery, index }) => {
   const [indexDisplayImage, setIndexDisplayImage] = React.useState(0)
   const [indexDisplayImage2, setIndexDisplayImage2] = React.useState(1)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   React.useEffect(
     () => {
@@ -68,15 +70,23 @@ const GalleryPresentation = ({ swapDesign, gallery, index }) => {
     return "https://res.cloudinary.com/projects-images/image/upload/h_2000,ar_1:1,c_fit/" + image.public_id
   }
 
+  const parametrizeGalleryName = (name) => {
+    return name.split(" ").join("-").toLowerCase()
+  }
+
+  const setGalleryUrl = (name) => {
+    return `/galleries/${parametrizeGalleryName(name)}`
+  }
+
   return (
     <div className='GalleryPresentation'>
 
       {images !== null &&
-        <div className={swapDesign ? 'design background-main' : 'design'}>
+        <div className={swapDesign ? 'design' : 'design'}>
 
           <div className={swapDesign ?
-            'photo-presentation background-body animation-load-img-right' :
-            'photo-presentation background-main animation-load-img-left'
+            'photo-presentation animation-load-img-right' :
+            'photo-presentation animation-load-img-left'
           } onAnimationIteration={e => displayAndLoad(e)} onAnimationEnd={e => setNewAnimation(e)} id={`photo-presentation-${index}`}>
             <div className='photo-presentation-lg active' style={{ backgroundImage: `url(${createUrl(images[indexDisplayImage])})` }} />
             <div className={swapDesign ? 'photo-presentation-lg active-right' : 'photo-presentation-lg active-left'} style={{ backgroundImage: `url(${createUrl(images[indexDisplayImage2])})` }} />
@@ -87,7 +97,8 @@ const GalleryPresentation = ({ swapDesign, gallery, index }) => {
             'text-presentation template-right animation-load-text-right'
           }>
             <h3>{gallery.name}</h3>
-            <p>{gallery.description}</p>
+            <p className='btn-gallery' onClick={e => navigate(setGalleryUrl(gallery.name))}>Visiter</p>
+            <p className='description-txt'>{gallery.description}</p>
           </div>
 
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import NavGalleryButton from '../NavGalleryButton';
+import GalleryTitle from 'components/GalleryTitle';
 
 const NavGalleries = ({ index }) => {
 
@@ -44,6 +45,8 @@ const NavGalleries = ({ index }) => {
               <NavGalleryButton index={prev} />
             </div>
           }
+          <GalleryTitle index={index} />
+
           {next !== null &&
             <div className='NavGalleriesButtonBoxRight' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[next])}`)}>
               <NavGalleryButton index={next} />

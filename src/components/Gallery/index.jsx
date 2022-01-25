@@ -7,7 +7,6 @@ import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/i
 import { useSelector } from 'react-redux';
 import Picture from 'components/Picture';
 import DisplayPicture from 'components/DisplayPicture';
-import GalleryTitle from 'components/GalleryTitle';
 
 const Gallery = () => {
 
@@ -68,8 +67,6 @@ const Gallery = () => {
     <div className='Gallery'>
 
       {images && display && <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex} images={images} setDisplay={setDisplay} />}
-
-      {galleryIndex !== null && <GalleryTitle index={galleryIndex} />}
 
       {galleryIndex !== null && <NavGalleries index={galleryIndex} />}
 

@@ -6,7 +6,7 @@ const initialState = {
   galleries: [
     {
       name: "Portraits et Personnes",
-      description: "test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1test description 1 test description 1 test description 1 test description 1 test description 1",
+      description: "test description 1",
       images: []
     },
     {

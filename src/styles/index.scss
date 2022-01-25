@@ -1,22 +1,23 @@
 /*VAR*/
 
-$black: rgba(0, 0, 0, 0.9);
-$black2: rgba(0, 0, 0, 0.6);
-$black3: rgba(0, 0, 0, 0.3);
-$black4: rgba(0, 0, 0, 0.2);
+$primary: rgba(17, 20, 21);
+$primary2: rgba(17, 20, 21, 0.8);
+$primary3: rgba(17, 20, 21, 0.3);
+$primary4: rgba(17, 20, 21, 0.2);
 
-$white: rgba(255, 255, 255, 0.9);
-$white2: rgba(255, 255, 255, 0.6);
-$white3: rgba(255, 255, 255, 0.3);
+$secondary: rgba(247, 247, 247);
+$secondary2: rgba(247, 247, 247, 0.8);
+$secondary3: rgba(247, 247, 247, 0.3);
 
-$pink: rgba(255, 164, 169, 0.609);
-$pink2: rgba(255, 164, 169, 0.363);
+$white: rgba(255, 255, 255);
+$black: rgba(0,0,0);
 
-$background-body: linear-gradient(to bottom, rgba(248, 246, 246, 0.8), rgba(255, 255, 255, 0.6));
-$background-main: linear-gradient(to right, rgba(255, 255, 255, 0.774), rgba(129, 127, 127, 0.329) 50%, rgba(255, 255, 255, 0.774) 100%);
-$background-secondary: linear-gradient(to right, $pink2, $pink 50%, $pink2 100%);
-$background-animation-button-right: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $white3, $white3 100%);
-$background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $white3, $white3 100%);
+$background-primary: rgba(17, 20, 21);
+
+
+$background-animation-button-nav: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $secondary, $secondary 100%);
+$background-animation-button-right: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $primary, $primary 100%);
+$background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, $primary, $primary 100%);
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display&display=swap');
 
@@ -43,8 +44,6 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-x: hidden;
-  
-  background: $background-body;
 
   h1, h2, h3, h4 {
     font-family: 'Lobster';
@@ -59,7 +58,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  
+
   display: flex;
   flex-direction: column;
 }
