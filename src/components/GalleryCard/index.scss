@@ -1,0 +1,33 @@
+.GalleryCard {
+  width: 400px;
+  height: 400px;
+  
+  margin-top: 5px;
+
+  color: $white;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-size 1.5s linear;
+
+  .card-overlay {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    
+    z-index: 0;
+    background-color: $primary4;
+    transition: background-color 0.8s linear;
+  }
+  .card-overlay:hover {
+   background-color: $primary2;
+  }
+}
+.GalleryCard:hover {
+  background-size: 110%;
+  background-position: center;
+}

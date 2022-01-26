@@ -1,0 +1,100 @@
+.NavGalleries {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .GalleryTitle {
+    width: 30%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    h2 {
+      width: 100%;
+    }
+  }
+
+  .NavGalleriesButtonBoxLeft {
+    height: 100%;
+    width: 25%;
+    padding-right: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+
+    background: $background-animation-button-left;
+    background-size: 400%;
+    background-position: right center;
+    transition: 0.8s linear;
+    
+    i {
+      padding-right: 3%;
+      transition: padding-right 0.8s linear;
+    }
+  }
+
+  .NavGalleriesButtonBoxLeft:hover {
+    width: 35%;
+    background-position: left center;
+    i {
+      padding-right: 5%;
+      color: $white;
+      mix-blend-mode: difference;
+    }
+    h3 {
+      color: $white;
+      mix-blend-mode: difference;
+    }
+  }
+
+  .NavGalleriesButtonBoxRight {
+    height: 100%;
+    width: 25%;
+    padding-left: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: $background-animation-button-right;
+    background-size: 400%;
+    background-position: left center;
+    transition: 0.8s linear;
+    
+    i {
+      color: $primary;
+      padding-left: 3%;
+      transition: padding-left 0.8s linear;
+    }
+    h3 {
+      color: $primary;
+      mix-blend-mode: difference;
+    }
+  }
+
+  .NavGalleriesButtonBoxRight:hover {
+    width: 35%;
+    background-position: right center;
+    
+    i {
+      padding-left: 5%;
+      color: $white;
+      mix-blend-mode: difference;
+    }
+    h3 {
+      color: $white;
+      mix-blend-mode: difference;
+    }
+  }
+  .NavGalleriesButton {
+    height: 100%;
+  }
+}

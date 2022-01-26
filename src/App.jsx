@@ -5,7 +5,7 @@ import Home from 'pages/Home';
 import Galleries from 'pages/Galleries';
 import About from 'pages/About';
 import NotFound from 'pages/NotFound';
-import Gallery from 'components/Gallery';
+import Gallery from 'pages/Gallery';
 import Footer from 'components/navigation/Footer';
 
 

@@ -1,0 +1,17 @@
+.Picture {
+  overflow: hidden;
+  margin-right: 5px;
+  margin-top: 5px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .photo {
+    transition: transform 1.5s;
+  }
+  .photo:hover {
+    transform: translateY(-5%) scale(1.1);
+  }
+}

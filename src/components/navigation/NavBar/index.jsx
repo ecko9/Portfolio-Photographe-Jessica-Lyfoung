@@ -1,6 +1,6 @@
 import React from 'react';
-import NavButtons from '../NavButtons';
-import NavTitle from '../NavTitle';
+import NavButtons from './NavButtons';
+import NavTitle from './NavTitle';
 
 const NavBar = () => {
   return (

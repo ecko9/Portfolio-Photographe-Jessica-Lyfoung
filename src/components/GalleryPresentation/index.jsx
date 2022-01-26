@@ -1,21 +1,18 @@
+import GalleryPresentationImages from 'components/GalleryPresentationImages';
+import GalleryPresentationInfos from 'components/GalleryPresentationInfos';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/images/actions';
 
 const GalleryPresentation = ({ swapDesign, gallery, index }) => {
 
   const [images, setImages] = React.useState(null)
-  const [indexSwap, setIndexSwap] = React.useState(true)
-  const [indexDisplayImage, setIndexDisplayImage] = React.useState(0)
-  const [indexDisplayImage2, setIndexDisplayImage2] = React.useState(1)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   React.useEffect(
     () => {
 
-      if (gallery.images.length < 3) {
+      if (gallery.images.length < 1) {
         let name = gallery.name.split(" ").join("-").toLowerCase()
         dispatch(fetchImagesRequest())
         fetch(`https://res.cloudinary.com/projects-images/image/list/${name}.json`)
@@ -37,73 +34,18 @@ const GalleryPresentation = ({ swapDesign, gallery, index }) => {
     }, [gallery]
   )
 
-  const setNewAnimation = (e) => {
-    index === 0 || index % 2 === 0 ?
-      document.querySelector(`div#photo-presentation-${index}`).classList.add('animation-swap-img-left') :
-      document.querySelector(`div#photo-presentation-${index}`).classList.add('animation-swap-img-right')
-  }
-
-  const loadNextImage = (index) => {
-    if (index + 2 >= images.length) {
-      return index + 2 - images.length
-    }
-    else {
-      return index + 2
-    }
-  }
-
-  const displayAndLoad = (e) => {
-    document.querySelector(`div#photo-presentation-${index}`).classList.add('paused')
-
-    indexSwap ?
-      setIndexDisplayImage(loadNextImage(indexDisplayImage)) :
-      setIndexDisplayImage2(loadNextImage(indexDisplayImage2))
-
-    setIndexSwap(!indexSwap)
-
-    setTimeout(() => {
-      document.querySelector(`div#photo-presentation-${index}`).classList.remove('paused')
-    }, 5000)
-  }
-
-  const createUrl = (image) => {
-    return "https://res.cloudinary.com/projects-images/image/upload/h_2000,ar_1:1,c_fit/" + image.public_id
-  }
-
-  const parametrizeGalleryName = (name) => {
-    return name.split(" ").join("-").toLowerCase()
-  }
-
-  const setGalleryUrl = (name) => {
-    return `/galleries/${parametrizeGalleryName(name)}`
-  }
-
   return (
     <div className='GalleryPresentation'>
 
       {images !== null &&
-        <div className={swapDesign ? 'design' : 'design'}>
-
-          <div className={swapDesign ?
-            'photo-presentation animation-load-img-right' :
-            'photo-presentation animation-load-img-left'
-          } onAnimationIteration={e => displayAndLoad(e)} onAnimationEnd={e => setNewAnimation(e)} id={`photo-presentation-${index}`}>
-            <div className='photo-presentation-lg active' style={{ backgroundImage: `url(${createUrl(images[indexDisplayImage])})` }} />
-            <div className={swapDesign ? 'photo-presentation-lg active-right' : 'photo-presentation-lg active-left'} style={{ backgroundImage: `url(${createUrl(images[indexDisplayImage2])})` }} />
-          </div>
-
-          <div className={swapDesign ?
-            'text-presentation template-left animation-load-text-left' :
-            'text-presentation template-right animation-load-text-right'
-          }>
-            <h3>{gallery.name}</h3>
-            <p className='btn-gallery' onClick={e => navigate(setGalleryUrl(gallery.name))}>Visiter</p>
-            <p className='description-txt'>{gallery.description}</p>
-          </div>
-
-        </div>
+        <GalleryPresentationImages images={images} index={index} swapDesign={swapDesign} />
       }
-    </div >
+
+      <GalleryPresentationInfos swapDesign={swapDesign} gallery={gallery} />
+
+    </div>
+
+
   );
 };
 
