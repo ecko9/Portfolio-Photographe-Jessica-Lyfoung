@@ -2,18 +2,10 @@
 @import '../GalleryPresentationInfos/index.scss';
 
 .GalleryPresentation {
-  
     position: relative;
     top: 0;
     left: 0;
     
     width: 100%;
     min-height: 80vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-   
   }

@@ -25,7 +25,7 @@ const GalleryCard = ({ gallery }) => {
       }
 
       const createUrl = (image) => {
-        return "https://res.cloudinary.com/projects-images/image/upload/w_400,ar_1:1,c_fill,g_auto/" + image.public_id
+        return "https://res.cloudinary.com/projects-images/image/upload/g_auto/" + image.public_id
       }
 
       const fetchGallery = async () => {

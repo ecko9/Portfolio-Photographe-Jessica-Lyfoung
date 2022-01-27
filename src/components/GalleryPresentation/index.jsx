@@ -37,15 +37,10 @@ const GalleryPresentation = ({ swapDesign, gallery, index }) => {
   return (
     <div className='GalleryPresentation'>
 
-      {images !== null &&
-        <GalleryPresentationImages images={images} index={index} swapDesign={swapDesign} />
-      }
-
+      {images !== null && <GalleryPresentationImages images={images} index={index} swapDesign={swapDesign} />}
       <GalleryPresentationInfos swapDesign={swapDesign} gallery={gallery} />
 
     </div>
-
-
   );
 };
 
