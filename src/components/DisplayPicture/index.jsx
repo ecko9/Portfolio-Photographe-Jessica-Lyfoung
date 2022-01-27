@@ -10,7 +10,7 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
     () => {
 
       const createBigPictureUrl = (image) => {
-        return "https://res.cloudinary.com/projects-images/image/upload/" + image.public_id
+        return "https://res.cloudinary.com/projects-images/image/upload/" + image.infos.public_id
       }
 
       if (images && focusedImageIndex !== null) {
