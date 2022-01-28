@@ -8,8 +8,6 @@ import NotFound from 'pages/NotFound';
 import Gallery from 'pages/Gallery';
 import Footer from 'components/navigation/Footer';
 
-
-
 const App = () => {
   return (
     <div className='App'>

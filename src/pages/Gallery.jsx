@@ -6,6 +6,7 @@ import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/i
 import DisplayPicture from 'components/DisplayPicture';
 import NavGalleries from 'components/navigation/NavGalleries';
 import GalleryImagesList from 'components/GalleryImagesList';
+import Loading from 'components/Loading';
 
 
 const Gallery = () => {
@@ -139,7 +140,8 @@ const Gallery = () => {
             })
         }
       }
-
+      document.querySelector('div#Loading').classList.add('photo-clip')
+      document.querySelector('div#load').classList.add('load')
       fetchGallery()
       return;
       // eslint-disable-next-line
@@ -148,6 +150,7 @@ const Gallery = () => {
 
   return (
     <div className='Gallery'>
+      <Loading />
       {galleryIndex !== null && <NavGalleries index={galleryIndex} />}
 
       {imagesGrid && display && <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex} images={imagesGrid} setDisplay={setDisplay} />}

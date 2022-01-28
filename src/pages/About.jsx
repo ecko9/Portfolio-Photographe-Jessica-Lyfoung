@@ -1,13 +1,14 @@
+import Loading from 'components/Loading';
 import React from 'react';
 
 const About = () => {
   return (
     <div className='About'>
-
+      <Loading />
       <div className='description-bg' >
-        <div className='img-description' />
+        <div className='img-description  animation-load-opacity' />
 
-        <div className='description'>
+        <div className='description animation-load-opacity'>
           <div className='description-txt'>
             <p>Bonjour et bienvenue sur mon site !</p>
             <p>Je vous présente ici mon univers et partage avec vous ce regard parfois dur, parfois tendre, de ce qui me touche au quotidien.</p>

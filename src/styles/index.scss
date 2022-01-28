@@ -21,6 +21,8 @@ $background-animation-button-left: linear-gradient(to left, rgba(0, 0, 0, 0), rg
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display&display=swap');
 
+@import './animations.scss';
+@import '../components/Loading/index.scss';
 @import '../components/navigation/index.scss';
 @import '../pages/Home.scss';
 @import '../pages/Galleries.scss';
@@ -58,8 +60,11 @@ body {
 }
 
 .App {
+  position: relative;
+  top: 0;
+  left: 0%;
+  
   width: 100%;
-  height: 100%;
   min-height: 100vh;
 
   display: flex;

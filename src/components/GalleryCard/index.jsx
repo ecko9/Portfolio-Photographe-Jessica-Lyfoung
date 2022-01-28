@@ -56,7 +56,7 @@ const GalleryCard = ({ gallery }) => {
   }
 
   return (
-    <div className='GalleryCard link' onClick={e => navigate(`/galleries/${parametrizeName(gallery.name)}`)} style={{ "backgroundImage": `url(${imageUrl})` }}>
+    <div className='GalleryCard link animation-load-card-right' onClick={e => navigate(`/galleries/${parametrizeName(gallery.name)}`)} style={{ "backgroundImage": `url(${imageUrl})` }}>
       <div className='card-overlay'>
         <h2>{gallery.name}</h2>
       </div>

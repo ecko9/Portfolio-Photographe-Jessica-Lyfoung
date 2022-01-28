@@ -7,9 +7,9 @@ const GalleryPresentationImages = ({ images, index, swapDesign }) => {
   const [indexDisplayImage2, setIndexDisplayImage2] = React.useState(1)
 
   const setNewAnimation = (e) => {
-    index === 0 || index % 2 === 0 ?
-      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('animation-swap-img-left') :
-      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('animation-swap-img-right')
+    swapDesign ?
+      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('animation-swap-img-right') :
+      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('animation-swap-img-left')
   }
 
   const loadNextImage = (index) => {
@@ -36,8 +36,9 @@ const GalleryPresentationImages = ({ images, index, swapDesign }) => {
   }
 
   const setImageUrl = (image) => {
-    return "https://res.cloudinary.com/projects-images/image/upload/h_2000,ar_1:1,c_fit/" + image.public_id
+    return `https://res.cloudinary.com/projects-images/image/upload/w_${Math.floor(window.screen.width)},h_${Math.floor(window.screen.height * 0.7)},c_fill,g_auto/` + image.public_id
   }
+
   return (
     <div
       className={swapDesign ? 'GalleryPresentationImages animation-load-img-right' : 'GalleryPresentationImages animation-load-img-left'}

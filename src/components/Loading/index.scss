@@ -1,0 +1,49 @@
+.Loading {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+
+  width: 100%;
+
+  z-index: 3;
+}
+
+.photo-clip {
+  
+  background-position: center;
+  background-image: url("../../../public/iris-photo-clip-animation.png");
+  animation: photo-clip 0.5s linear 0s 1 both;
+}
+
+@keyframes photo-clip {
+  0% {
+    background-size: 600%;
+    height: 100%;
+  }
+  50% {background-size: 10%;}
+  99% {height: 100%;}
+  100% {
+    background-size: 600%;
+    height: 0%;
+  }
+}
+
+.load {
+  height: 100%;
+  width: 100%;
+
+  background-color: $primary;
+  opacity: 0;
+  
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: load 0.5s linear 0s 1 both;
+}
+
+@keyframes load {
+  0% {opacity: 0;}
+  30% {opacity: 0.8;}
+  50% {opacity: 1;}
+  70% {opacity: 0.8;}
+  100% {opacity: 0;}
+}
