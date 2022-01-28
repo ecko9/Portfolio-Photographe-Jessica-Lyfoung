@@ -9,8 +9,7 @@ const Picture = ({ image, widthRatio, imageIndex, setFocusedImageIndex, setDispl
   }
 
   return (
-    <div className='Picture' onClick={e => displayFocusedImageIndex(imageIndex)}>
-      {console.log(widthRatio)}
+    <div className='Picture link' onClick={e => displayFocusedImageIndex(imageIndex)}>
       <Image publicId={image.public_id} className="photo" key={image.public_id} loading="lazy">
         <Transformation height={Math.floor(window.screen.height * 0.4)} width={Math.floor(window.innerWidth / widthRatio.maxColumn * widthRatio.column)} crop="fill" gravity="center" />
       </Image>

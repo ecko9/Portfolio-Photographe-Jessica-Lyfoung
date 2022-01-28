@@ -1,25 +1,95 @@
 .About {
   width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 5px;
 
-  .description {
-    width:100%;
-    height: 400px;
-    margin-top: 5%;
-    margin-bottom: 5%;
+  background-color: $secondary;
+
+  @media screen and (min-width: 1800px) {
+    .img-description {
+      width: 25%;
+      height: 700px;
+    }
+    .description {
+      width: 20%;
+    }
+  }
+  @media screen and (min-width: 1400px) and (max-width: 1800px) {
+    .img-description {
+      width: 30%;
+      height: 700px;
+    }
+    .description {
+      width: 30%;
+    }
+  }
+  @media screen and (min-width: 900px) and (max-width: 1400px) {
+    .img-description {
+      width: 40%;
+      height: 700px;
+    }
+    .description {
+      width: 40%;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .img-description {
+      width: 80%;
+      height: 600px;
+    }
+    .description {
+      width: 80%;
+    }
+  }
+  
+  .description-bg {
+    width: 100%;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
- 
-    p {
-      border: 1px solid grey;
-      height: 80%;
-      width: 50%;
-      text-align: center;
-   
+    flex-wrap: wrap;
+
+    background-color: $primary;
+
+    .img-description {
+      background-color: $secondary;
+    }
+  
+    .description-txt::-webkit-scrollbar {
+      display: none;
+    }
+    .description {
+      height: 100%;
+
+      margin-top: 5%;
+      margin-bottom: 5%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $secondary;
+      background-color: $primary;
+
+      .description-txt {
+        width: 100%;
+        height: 70%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: scroll;
+  
+      }
+      p {
+        width: 80%;
+        padding-bottom: 20px;
+
+        text-align: center;
+      }
     }
   }
 }

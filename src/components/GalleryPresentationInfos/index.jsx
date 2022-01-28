@@ -19,7 +19,7 @@ const GalleryPresentationInfos = ({ swapDesign, gallery }) => {
       'GalleryPresentationInfos template-right animation-load-text-right'
     }>
       <h3>{gallery.name}</h3>
-      <p className='btn-gallery' onClick={e => navigate(setGalleryUrl(gallery.name))}>Visiter</p>
+      <p className='btn-gallery link' onClick={e => navigate(setGalleryUrl(gallery.name))}>Visiter</p>
       <p className='description-txt'>{gallery.description}</p>
     </div>
   );

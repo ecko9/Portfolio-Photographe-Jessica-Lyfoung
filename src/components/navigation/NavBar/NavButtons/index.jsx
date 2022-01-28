@@ -13,21 +13,21 @@ const NavButtons = () => {
     () => {
       setSplitLocation(pathname.split("/"));
       return;
-    }, [location]
+    }, [location, pathname]
   )
 
   return (
     <div className='NavButtons'>
 
       {splitLocation !== null &&
-        <div className={splitLocation[1] === "" ? 'NavButtonsBox active-nav' : 'NavButtonsBox'} onClick={e => navigate("/")}>
+        <div className={splitLocation[1] === "" ? 'NavButtonsBox active-nav link' : 'NavButtonsBox link'} onClick={e => navigate("/")}>
           <h3>
             Accueil
           </h3>
         </div>
       }
       {splitLocation !== null &&
-        <div className={splitLocation[1] === "galleries" ? 'NavButtonsBox active-nav' : 'NavButtonsBox'} onClick={e => navigate("/galleries")}>
+        <div className={splitLocation[1] === "galleries" ? 'NavButtonsBox active-nav link' : 'NavButtonsBox link'} onClick={e => navigate("/galleries")}>
           <div className='NavButtonsBoxBg'>
           </div>
           <h3>
@@ -36,7 +36,7 @@ const NavButtons = () => {
         </div>
       }
       {splitLocation !== null &&
-        <div className={splitLocation[1] === "a-propos" ? 'NavButtonsBox active-nav' : 'NavButtonsBox'} onClick={e => navigate("/a-propos")}>
+        <div className={splitLocation[1] === "a-propos" ? 'NavButtonsBox active-nav link' : 'NavButtonsBox link'} onClick={e => navigate("/a-propos")}>
           <div className='NavButtonsBoxBg'>
           </div>
           <h3>

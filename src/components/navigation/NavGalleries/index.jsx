@@ -40,7 +40,7 @@ const NavGalleries = ({ index }) => {
       {galleries &&
         < div className='NavGalleries' >
           {prev !== null &&
-            <div className='NavGalleriesButtonBoxLeft' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[prev])}`)}>
+            <div className='NavGalleriesButtonBoxLeft link' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[prev])}`)}>
               <i className="fas fa-angle-left"></i>
               <NavGalleryButton index={prev} />
             </div>
@@ -48,7 +48,7 @@ const NavGalleries = ({ index }) => {
           <GalleryTitle index={index} />
 
           {next !== null &&
-            <div className='NavGalleriesButtonBoxRight' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[next])}`)}>
+            <div className='NavGalleriesButtonBoxRight link' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[next])}`)}>
               <NavGalleryButton index={next} />
               <i className="fas fa-angle-right"></i>
             </div>

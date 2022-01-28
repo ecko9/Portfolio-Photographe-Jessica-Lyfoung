@@ -49,7 +49,9 @@ body {
   h1, h2, h3, h4 {
     font-family: 'Lobster';
   }
-  
+  a {
+    text-decoration: none;
+  }
   p {
     font-family: 'Playfair Display';
   }
@@ -62,4 +64,8 @@ body {
 
   display: flex;
   flex-direction: column;
+}
+
+.link:hover {
+  cursor: pointer;
 }

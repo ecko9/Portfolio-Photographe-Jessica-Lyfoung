@@ -47,9 +47,15 @@ const Gallery = () => {
           return 1
         else {
           if (ar >= 1.5 && ar < 2.5)
-            return Math.floor(maxColumn / 2)
+            if (maxColumn === 3)
+              return 2
+            else
+              return Math.floor(maxColumn / 2)
           else if (ar >= 2.5 && ar < 3)
-            return Math.floor(maxColumn * 3 / 4)
+            if (maxColumn === 3)
+              return 3
+            else
+              return Math.floor(maxColumn * 3 / 4)
           else if (ar >= 3)
             return maxColumn
           else
@@ -90,12 +96,12 @@ const Gallery = () => {
       const chooseMaxColumn = () => {
         let screenWidth = Math.floor(window.innerWidth)
 
-        if (screenWidth <= 700)
+        if (screenWidth <= 800)
           return 1
-        else if (screenWidth > 700 && screenWidth <= 1400)
-          return 3
+        else if (screenWidth > 800 && screenWidth <= 1400)
+          return 2
         else if (screenWidth > 1400 && screenWidth <= 1800)
-          return 4
+          return 3
         else
           return 5
       }

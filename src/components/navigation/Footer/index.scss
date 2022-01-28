@@ -24,7 +24,7 @@
       width: 100%;
       height: 20%;
 
-      margin-top: 30px;
+      margin-top: 5%;
       margin-bottom: 15px;
 
       text-align: center;
@@ -33,30 +33,33 @@
     .contact-info {
       width: 100%;
       height: 80%;
+      margin-top: 20px;
 
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       flex-wrap: wrap;
 
       h3, h4 {
         width: 100%;
         margin-bottom: 15px;
+
         text-align: center;
       }
-      
 
       .networks {
         height: 30%;
-        width: 100%;
-        padding-top: 5px;
+        width: 10%;
+        margin-top: 30px;
+        margin-left: 5px;
 
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
+
+        background-color: $secondary;
+        color: $primary;
 
         i {
           width: 100%;
@@ -66,6 +69,20 @@
         p {
           width: 100%;
           text-align: center;
+        }
+      }
+
+      .copyrights {
+        width: 100%;
+        margin-top: 90px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        p {
+          margin-left: 5px;
         }
       }
     }
