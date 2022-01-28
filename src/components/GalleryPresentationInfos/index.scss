@@ -1,15 +1,16 @@
-.template-left {
-  bottom: 0%;
-  left: 10%;
-}
-.template-right {
-  bottom: 0%;
-  right: 10%;
-}
+
 
 @media screen and (min-width: 700px) {
   .GalleryPresentationInfos {
     width: 33%;
+  }
+  .template-left {
+    bottom: 0%;
+    left: 10%;
+  }
+  .template-right {
+    bottom: 0%;
+    right: 10%;
   }
 }
 
@@ -17,13 +18,21 @@
   .GalleryPresentationInfos {
     width: 100%;
   }
+  .template-left {
+    bottom: 0%;
+    left: 0%;
+  }
+  .template-right {
+    bottom: 0%;
+    right: 0%;
+  }
 }
 
 .GalleryPresentationInfos {
   position: absolute;
 
-  height:35%;
-  z-index: 2;
+  height: 35%;
+  z-index: 1;
 
   display: flex;
   align-items: center;

@@ -18,10 +18,10 @@
 @keyframes animation-load-text-right {
   0% {right: -60%;}
   100% {
-    @media screen and (max-width: 1500px) {
+    @media screen and (max-width: 700px) {
       right: 0%;
     }
-    @media screen and (min-width: 1500px) {
+    @media screen and (min-width: 700px) {
       right: 10%;
     }
   }

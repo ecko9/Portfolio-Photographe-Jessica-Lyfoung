@@ -11,13 +11,11 @@ const Contact = () => {
       <div className='contact-info'>
 
         <a className='networks' href="https://www.instagram.com/jessicanoodle/">
-          <p>JessNoodle</p>
-          <i className="fab fa-instagram"></i>
+          <i className="fab fa-instagram fa-2x"></i>
         </a>
 
         <a className='networks' href="https://www.facebook.com/J.Noodle.photography">
-          <p>JiJiNoodle</p>
-          <i className="fab fa-facebook-square"></i>
+          <i className="fab fa-facebook-square fa-2x"></i>
         </a>
 
         <div className='copyrights'>
