@@ -6,7 +6,7 @@ import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/i
 import DisplayPicture from 'components/DisplayPicture';
 import NavGalleries from 'components/navigation/NavGalleries';
 import GalleryImagesList from 'components/GalleryImagesList';
-import Loading from 'components/Loading';
+import LoadingImagesList from 'components/LoadingImagesList';
 
 
 const Gallery = () => {
@@ -17,6 +17,8 @@ const Gallery = () => {
 
   const [focusedImageIndex, setFocusedImageIndex] = React.useState(null)
   const [display, setDisplay] = React.useState(false)
+  const [isNavGalleriesFixed, setIsNavGalleriesFixed] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   const galleries = useSelector(state => state.imagesReducer.galleries)
   const dispatch = useDispatch()
@@ -140,24 +142,43 @@ const Gallery = () => {
             })
         }
       }
-      document.querySelector('div#Loading').classList.add('photo-clip')
-      document.querySelector('div#load').classList.add('load')
+      setIsLoading(true)
+
+      setImagesGrid(null)
+      if (isNavGalleriesFixed)
+        setIsNavGalleriesFixed(false)
+
       fetchGallery()
       return;
       // eslint-disable-next-line
     }, [name]
   )
 
-  return (
-    <div className='Gallery'>
-      <Loading />
-      {galleryIndex !== null && <NavGalleries index={galleryIndex} />}
+  const setNavGalleriesPosition = (e) => {
+    if (isNavGalleriesFixed === false && Math.floor(window.scrollY) > 500)
+      setIsNavGalleriesFixed(true)
+    if (isNavGalleriesFixed && Math.floor(window.scrollY) <= 500)
+      setIsNavGalleriesFixed(false)
+  }
 
-      {imagesGrid && display && <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex} images={imagesGrid} setDisplay={setDisplay} />}
+  return (
+    <div className='Gallery' onWheel={e => setNavGalleriesPosition(e)} style={isNavGalleriesFixed ? { marginTop: "100px" } : { marginTop: "0px" }}>
+      {galleryIndex !== null && <NavGalleries index={galleryIndex} isFixed={isNavGalleriesFixed} />}
+
+      {isLoading && <LoadingImagesList setIsLoading={setIsLoading} />}
+
+      {imagesGrid !== null && display &&
+        <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex}
+          images={imagesGrid} setDisplay={setDisplay} />
+      }
 
       <CloudinaryContext cloudName="projects-images">
-        {imagesGrid && galleryIndex !== null && <GalleryImagesList images={imagesGrid} galleryIndex={galleryIndex} setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay} />}
+        {imagesGrid !== null && galleryIndex !== null &&
+          <GalleryImagesList images={imagesGrid} galleryIndex={galleryIndex}
+            setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay} />
+        }
       </CloudinaryContext >
+
     </div >
   );
 };

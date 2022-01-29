@@ -15,21 +15,24 @@
   .big-picture {
     width: 80%;
     height: 80%;
+
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    transition: width 0.5s linear;
+    transition: opacity 0.5s linear;
   }
 
   .display-side-block {
     width: 10%;
     height: 10%;
+
     background-color: rgba(0,0,0,0);
     transition: background-color 1s linear;
 
     i {
       width: 100%;
       height: 100%;
+
       color: $secondary;
       display: flex;
       justify-content: center;

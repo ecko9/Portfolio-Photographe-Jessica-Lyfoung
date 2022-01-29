@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import NavGalleryButton from './NavGalleryButton';
 import GalleryTitle from 'components/navigation/NavGalleries/GalleryTitle';
 
-const NavGalleries = ({ index }) => {
+const NavGalleries = ({ index, isFixed }) => {
 
   const [prev, setPrev] = React.useState(null);
   const [next, setNext] = React.useState(null);
+
   const galleries = useSelector(state => state.imagesReducer.galleries);
   const navigate = useNavigate()
 
@@ -38,7 +39,7 @@ const NavGalleries = ({ index }) => {
   return (
     <>
       {galleries &&
-        < div className='NavGalleries' >
+        < div className='NavGalleries' style={isFixed ? { position: 'fixed' } : { position: 'relative' }}>
           {prev !== null &&
             <div className='NavGalleriesButtonBoxLeft link' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[prev])}`)}>
               <i className="fas fa-angle-left"></i>

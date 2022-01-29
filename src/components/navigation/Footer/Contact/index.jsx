@@ -19,7 +19,7 @@ const Contact = () => {
         </a>
 
         <div className='copyrights'>
-          <i className="far fa-copyright"></i>
+          <i className="fas fa-copyright"></i>
           <p>Photographies Jessica Lyfoung - Site Jean Ferstler</p>
         </div>
       </div>

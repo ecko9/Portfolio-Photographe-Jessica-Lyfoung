@@ -4,28 +4,20 @@
   .GalleryPresentationInfos {
     width: 33%;
   }
-  .template-left {
-    bottom: 0%;
-    left: 10%;
-  }
-  .template-right {
-    bottom: 0%;
-    right: 10%;
-  }
 }
-
 @media screen and (max-width: 700px) {
   .GalleryPresentationInfos {
     width: 100%;
   }
-  .template-left {
-    bottom: 0%;
-    left: 0%;
-  }
-  .template-right {
-    bottom: 0%;
-    right: 0%;
-  }
+}
+
+.template-left {
+  bottom: 0%;
+  left: 0%;
+}
+.template-right {
+  bottom: 0%;
+  right: 0%;
 }
 
 .GalleryPresentationInfos {

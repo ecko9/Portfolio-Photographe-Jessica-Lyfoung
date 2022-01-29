@@ -6,28 +6,12 @@
 }
 @keyframes animation-load-text-left {
   0% {left: -60%;}
-  100% {
-    @media screen and (max-width: 1500px) {
-      left: 0%;
-    }
-    @media screen and (min-width: 1500px) {
-      left: 10%;
-    }
-  }
+  100% {left: 0%;}
 }
 @keyframes animation-load-text-right {
   0% {right: -60%;}
-  100% {
-    @media screen and (max-width: 700px) {
-      right: 0%;
-    }
-    @media screen and (min-width: 700px) {
-      right: 10%;
-    }
-  }
+  100% { right: 0%;}
 }
-
-
 
 .animation-load-img-left {
   animation: 1s linear 0s 1 both animation-load-img-left;
@@ -58,8 +42,6 @@
   }
 }
 
-
-
 .animation-load-card-right {
   animation: 1s linear 0s 1 both animation-load-card-right;
 }
@@ -74,8 +56,6 @@
     opacity: 1;
   }
 }
-
-
 
 .animation-swap-img-left {
   animation: 1s linear 5s infinite both alternate animation-swap-img-left;
@@ -99,12 +79,10 @@
   100% {left: -100%;}
 }
 
-
 .animation-load-opacity {
-  animation: 1s linear 0s 1 both animation-load-opacity;
+  animation: 3s linear 0s 1 both animation-load-opacity;
 }
 @keyframes animation-load-opacity {
   0% {opacity: 0;}
-  80% {opacity: 0.5;}
   100% {opacity: 1;}
 }

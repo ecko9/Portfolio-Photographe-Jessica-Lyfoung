@@ -7,37 +7,33 @@
 
   background-color: $secondary;
 
-  @media screen and (min-width: 1800px) {
+  @media screen and (min-width: 1700px) {
     .img-description {
       width: 25%;
-      height: 700px;
     }
     .description {
-      width: 20%;
+      width: 25%;
     }
   }
-  @media screen and (min-width: 1400px) and (max-width: 1800px) {
+  @media screen and (min-width: 1400px) and (max-width: 1700px) {
     .img-description {
       width: 30%;
-      height: 600px;
     }
     .description {
       width: 30%;
     }
   }
-  @media screen and (min-width: 900px) and (max-width: 1400px) {
+  @media screen and (min-width: 1000px) and (max-width: 1400px) {
     .img-description {
       width: 40%;
-      height: 600px;
     }
     .description {
       width: 40%;
     }
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     .img-description {
       width: 80%;
-      height: 600px;
     }
     .description {
       width: 80%;
@@ -48,13 +44,14 @@
     width: 100%;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 
     background-color: $primary;
 
     .img-description {
+      height: 550px;
       background-color: $secondary;
     }
   
@@ -64,15 +61,13 @@
     .description {
       height: 100%;
 
-      margin-top: 5%;
-      margin-bottom: 5%;
+      margin: 5% 0% 5% 5%;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
       color: $secondary;
-      background-color: $primary;
 
       .description-txt {
         width: 100%;
