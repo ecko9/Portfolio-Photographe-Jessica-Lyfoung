@@ -1,12 +1,16 @@
 @import 'components/navigation/NavGalleries/index.scss';
-@import 'components/LoadingImagesList/index.scss';
 @import 'components/DisplayPicture/index.scss';
-@import 'components/GalleryImagesList/index.scss';
+@import 'components/GalleryImagesListBox/index.scss';
+@import 'components/GalleryTransition/index.scss';
 
 .Gallery::-webkit-scrollbar {
   display: none;
 }
 .Gallery {
+  position: relative;
+  top: 0%;
+  left: 0%;
+
   width: 100%;
-  height: 55%;
+  min-height: 55%;
 }

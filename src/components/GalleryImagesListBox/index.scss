@@ -1,0 +1,20 @@
+@import 'components/Picture/index.scss';
+
+.GalleryImagesListBox {
+  width: 100%;
+  min-height: 100vh;
+
+  .GalleryImagesList {
+    position: relative;
+    top: 0%;
+    left: 0%;
+
+    width:  100%;
+
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+
+    background-color: $primary;
+  }
+}

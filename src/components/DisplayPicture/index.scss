@@ -1,10 +1,12 @@
 .DisplayPicture {
   position: fixed;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: -100%;
-  background-color: $primary2;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: $primary;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -19,7 +21,16 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    transition: opacity 0.5s linear;
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    background-color: $primary;
+  }
+  .animation-load-big-picture{
+    animation: animation-load-opacity 1s linear 0s 2 alternate both;
   }
 
   .display-side-block {

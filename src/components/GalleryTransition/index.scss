@@ -1,0 +1,26 @@
+.GalleryTransition {
+  position: absolute;
+  top: 100px;
+  left: 0%;
+
+  width: 100%;
+  min-height: 0%;
+
+  background-color: $primary;
+  z-index: 1;
+}
+.animation-transition {
+  animation: gallery-transition 0.25s linear 0s 2 alternate both;
+}
+
+@keyframes gallery-transition {
+  0% {
+    opacity: 0.3;
+    min-height: 0%;
+  }
+  1% {min-height: 100%;}
+  100% {
+    opacity: 1;
+    min-height: 100%;
+  }
+}

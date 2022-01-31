@@ -5,20 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/images/actions';
 import DisplayPicture from 'components/DisplayPicture';
 import NavGalleries from 'components/navigation/NavGalleries';
-import GalleryImagesList from 'components/GalleryImagesList';
-import LoadingImagesList from 'components/LoadingImagesList';
-
+import GalleryImagesListBox from 'components/GalleryImagesListBox';
 
 const Gallery = () => {
 
   const { name } = useParams()
   const [galleryIndex, setGalleryIndex] = React.useState(null)
   const [imagesGrid, setImagesGrid] = React.useState(null)
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [loadingGalleryUrl, setLoadingGalleryUrl] = React.useState('')
 
   const [focusedImageIndex, setFocusedImageIndex] = React.useState(null)
   const [display, setDisplay] = React.useState(false)
   const [isNavGalleriesFixed, setIsNavGalleriesFixed] = React.useState(false)
-  const [isLoading, setIsLoading] = React.useState(true)
 
   const galleries = useSelector(state => state.imagesReducer.galleries)
   const dispatch = useDispatch()
@@ -142,11 +141,11 @@ const Gallery = () => {
             })
         }
       }
-      setIsLoading(true)
 
-      setImagesGrid(null)
-      if (isNavGalleriesFixed)
+      if (isNavGalleriesFixed) {
         setIsNavGalleriesFixed(false)
+        window.scrollTo(0, 0)
+      }
 
       fetchGallery()
       return;
@@ -163,22 +162,29 @@ const Gallery = () => {
 
   return (
     <div className='Gallery' onWheel={e => setNavGalleriesPosition(e)} style={isNavGalleriesFixed ? { marginTop: "100px" } : { marginTop: "0px" }}>
-      {galleryIndex !== null && <NavGalleries index={galleryIndex} isFixed={isNavGalleriesFixed} />}
-
-      {isLoading && <LoadingImagesList setIsLoading={setIsLoading} />}
+      {galleryIndex !== null &&
+        <NavGalleries
+          index={galleryIndex} isFixed={isNavGalleriesFixed}
+          setIsLoading={setIsLoading} setLoadingGalleryUrl={setLoadingGalleryUrl}
+        />
+      }
 
       {imagesGrid !== null && display &&
-        <DisplayPicture focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex}
-          images={imagesGrid} setDisplay={setDisplay} />
+        <DisplayPicture
+          focusedImageIndex={focusedImageIndex} setFocusedImageIndex={setFocusedImageIndex}
+          images={imagesGrid} setDisplay={setDisplay}
+        />
       }
 
       <CloudinaryContext cloudName="projects-images">
         {imagesGrid !== null && galleryIndex !== null &&
-          <GalleryImagesList images={imagesGrid} galleryIndex={galleryIndex}
-            setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay} />
+          <GalleryImagesListBox
+            images={imagesGrid} galleryIndex={galleryIndex}
+            setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay}
+            setIsLoading={setIsLoading} isLoading={isLoading} loadingGalleryUrl={loadingGalleryUrl}
+          />
         }
       </CloudinaryContext >
-
     </div >
   );
 };

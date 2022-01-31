@@ -5,6 +5,8 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
   const [bigPictureUrl, setBigPictureUrl] = React.useState("")
   const [prevIndex, setPrevIndex] = React.useState(null)
   const [nextIndex, setNextIndex] = React.useState(null)
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [loadingIndex, setLoadingIndex] = React.useState(focusedImageIndex)
 
   React.useEffect(
     () => {
@@ -29,20 +31,9 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
     }, [focusedImageIndex, images]
   )
 
-  const bigPicture = (imageUrl) => (
-    <div className='big-picture' style={{ backgroundImage: `url(${imageUrl})` }} />
-  )
-
-  const transitionAnimation = (index) => {
-    document.querySelector('div.big-picture').style.width = '0%';
-    setTimeout(() => {
-      setFocusedImageIndex(index)
-      document.querySelector('div.big-picture').style.width = '80%'
-    }, 500)
-  }
-
   const displayNewPicture = (e, index) => {
-    transitionAnimation(index)
+    setLoadingIndex(index)
+    setIsLoading(true)
     e.preventDefault()
     e.stopPropagation()
   }
@@ -55,13 +46,23 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
   return (
     <div className='DisplayPicture' onClick={e => stopDisplay(e)}>
 
-      <div className='display-side-block'>
+      <div className='display-side-block link'>
         {prevIndex !== null && <i className="fas fa-angle-left" onClick={e => displayNewPicture(e, prevIndex)}></i>}
       </div>
 
-      {bigPictureUrl && bigPicture(bigPictureUrl)}
+      {bigPictureUrl &&
+        <div
+          className='big-picture'
+          style={{ backgroundImage: `url(${bigPictureUrl})` }}
+        >
+          <div
+            className={isLoading ? 'overlay animation-load-big-picture' : 'overlay'}
+            onAnimationIteration={e => setFocusedImageIndex(loadingIndex)} onAnimationEnd={e => setIsLoading(false)}
+          />
+        </div>
+      }
 
-      <div className='display-side-block'>
+      <div className='display-side-block link'>
         {nextIndex !== null && <i className="fas fa-angle-right" onClick={e => displayNewPicture(e, nextIndex)}></i>}
       </div>
 
