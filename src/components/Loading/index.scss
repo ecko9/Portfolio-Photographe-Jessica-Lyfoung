@@ -12,7 +12,7 @@
   
   background-position: center;
   background-image: url("../../../public/iris-photo-clip-animation.png");
-  animation: photo-clip 0.5s linear 0s 1 both;
+  animation: photo-clip 0.3s linear 0s 1 both;
 }
 
 @keyframes photo-clip {
@@ -20,7 +20,7 @@
     background-size: 600%;
     height: 100%;
   }
-  50% {background-size: 10%;}
+  50% {background-size: 100%;}
   99% {height: 100%;}
   100% {
     background-size: 600%;
@@ -37,7 +37,7 @@
   
   background-size: 100%;
   background-repeat: no-repeat;
-  animation: load 0.5s linear 0s 1 both;
+  animation: load 0.3s linear 0s 1 both;
 }
 
 @keyframes load {
