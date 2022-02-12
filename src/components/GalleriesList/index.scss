@@ -1,12 +1,11 @@
 @import '../GalleryCard/index.scss';
 
-.GalleriesList {
+.GalleriesList, .GalleriesList > div {
   width: 100%;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 
   background-color: $primary;
 }

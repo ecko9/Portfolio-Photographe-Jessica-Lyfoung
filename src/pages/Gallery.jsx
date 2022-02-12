@@ -161,7 +161,11 @@ const Gallery = () => {
   }
 
   return (
-    <div className='Gallery' onWheel={e => setNavGalleriesPosition(e)} style={isNavGalleriesFixed ? { marginTop: "100px" } : { marginTop: "0px" }}>
+    <div
+      className='Gallery'
+      onWheel={e => setNavGalleriesPosition(e)}
+      style={isNavGalleriesFixed ? { marginTop: "100px" } : { marginTop: "0px" }}
+    >
       {galleryIndex !== null &&
         <NavGalleries
           index={galleryIndex} isFixed={isNavGalleriesFixed}

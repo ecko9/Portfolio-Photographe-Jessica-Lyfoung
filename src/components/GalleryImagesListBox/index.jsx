@@ -13,7 +13,14 @@ const GalleryImagesListBox = ({ images, galleryIndex, setFocusedImageIndex, setD
 
       <div className='GalleryImagesList'>
         {images && images.map((image, i) => (
-          <Picture key={image.infos.public_id} image={image.infos} widthRatio={image.widthRatio} imageIndex={i} galleryIndex={galleryIndex} setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay} />
+          <Picture
+            key={image.infos.public_id}
+            image={image.infos}
+            widthRatio={image.widthRatio}
+            imageIndex={i}
+            galleryIndex={galleryIndex}
+            setFocusedImageIndex={setFocusedImageIndex}
+            setDisplay={setDisplay} />
         ))}
       </div>
 

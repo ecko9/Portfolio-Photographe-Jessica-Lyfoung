@@ -18,6 +18,11 @@ const initialState = {
       name: "Photos Insolites",
       description: "test description 3",
       images: []
+    },
+    {
+      name: "Noir et Blanc",
+      description: "Une selection de portraits en noir et blanc.",
+      images: []
     }
   ]
 }

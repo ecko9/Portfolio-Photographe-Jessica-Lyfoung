@@ -1,36 +1,21 @@
 
-@media screen and (max-width: 800px) {
-  .GalleryCard {
-    width: 100%;
-    height: 300px;
-  }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1500px) {
-  .GalleryCard {
-    width: 50%;
-    height: 500px;   
-  }
-}
-
-@media screen and (min-width: 1500px) {
-  .GalleryCard {
-    width: 33.3333333333%;
-    height: 600px;
-  }
-}
-
 .GalleryCard {
   position: relative;
-  top: 0%;
+  top: 0;
+  left: 0;
 
   color: $white;
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-size 1.5s linear;
+  transition: 1.5s linear;
+
+  &:hover {
+    transform: translateY(-5%) scale(1.1);
+  }
 
   .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
     
@@ -49,8 +34,4 @@
   .card-overlay:hover {
    background-color: $primary2;
   }
-}
-.GalleryCard:hover {
-  background-size: auto 105%;
-  background-position: center;
 }
