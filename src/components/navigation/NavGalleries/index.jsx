@@ -2,12 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import NavGalleryButton from './NavGalleryButton';
 import GalleryTitle from 'components/navigation/NavGalleries/GalleryTitle';
+import { useNavigate } from 'react-router-dom';
 
-const NavGalleries = ({ index, isFixed, setIsLoading, setLoadingGalleryUrl }) => {
+const NavGalleries = ({ index, isFixed }) => {
 
   const [prev, setPrev] = React.useState(null);
   const [next, setNext] = React.useState(null);
   const galleries = useSelector(state => state.imagesReducer.galleries);
+
+  const navigate = useNavigate()
 
   React.useEffect(
     () => {
@@ -36,15 +39,10 @@ const NavGalleries = ({ index, isFixed, setIsLoading, setLoadingGalleryUrl }) =>
     return gallery.name.split(" ").join("-").toLowerCase()
   }
 
-  const swapGallery = (goToIndex) => {
-    setLoadingGalleryUrl(`/galleries/${parametrizeGalleryName(galleries[goToIndex])}`)
-    setIsLoading(true)
-  }
-
   return (
     < div className='NavGalleries' style={isFixed ? { position: 'fixed' } : { position: 'relative' }}>
       {prev !== null &&
-        <div className='NavGalleriesButtonBoxLeft link' onClick={e => swapGallery(prev)}>
+        <div className='NavGalleriesButtonBoxLeft link' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[prev])}`)}>
           <i className="fas fa-angle-left"></i>
           <NavGalleryButton index={prev} />
         </div>
@@ -52,7 +50,7 @@ const NavGalleries = ({ index, isFixed, setIsLoading, setLoadingGalleryUrl }) =>
       <GalleryTitle index={index} />
 
       {next !== null &&
-        <div className='NavGalleriesButtonBoxRight link' onClick={e => swapGallery(next)}>
+        <div className='NavGalleriesButtonBoxRight link' onClick={e => navigate(`/galleries/${parametrizeGalleryName(galleries[next])}`)}>
           <NavGalleryButton index={next} />
           <i className="fas fa-angle-right"></i>
         </div>
