@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef } from 'react';
 
 const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDisplay }) => {
 
@@ -7,6 +8,7 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
   const [nextIndex, setNextIndex] = React.useState(null)
   const [isLoading, setIsLoading] = React.useState(false)
   const [loadingIndex, setLoadingIndex] = React.useState(focusedImageIndex)
+  const displayPictureEl = useRef()
 
   React.useEffect(
     () => {
@@ -16,7 +18,7 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
       }
 
       if (images && focusedImageIndex !== null) {
-        document.querySelector('div.DisplayPicture').style.left = '0%';
+        displayPictureEl.current.style.left = '0%';
         setBigPictureUrl(createBigPictureUrl(images[focusedImageIndex]))
 
         focusedImageIndex < images.length - 1 ?
@@ -39,12 +41,12 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
   }
 
   const stopDisplay = (e) => {
+    displayPictureEl.current.style.left = '-100%';
     setDisplay(false)
-    document.querySelector('div.DisplayPicture').style.left = '-100%';
   }
 
   return (
-    <div className='DisplayPicture' onClick={e => stopDisplay(e)}>
+    <div className='DisplayPicture' ref={displayPictureEl} onClick={e => stopDisplay(e)}>
 
       <div className='display-side-block link'>
         {prevIndex !== null && <i className="fas fa-angle-left" onClick={e => displayNewPicture(e, prevIndex)}></i>}
