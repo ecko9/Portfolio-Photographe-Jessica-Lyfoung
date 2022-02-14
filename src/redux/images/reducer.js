@@ -58,7 +58,7 @@ const imagesReducer = (state = initialState, action) => {
       };
 
     case GET_GALLERY_SUCCESS:
-      storeAGallery(state, action.name, action.images);
+      return storeAGallery(state, action.name, action.images);
 
     default:
       return state;
