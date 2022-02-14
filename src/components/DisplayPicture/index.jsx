@@ -1,25 +1,19 @@
+import { CloudinaryContext, Image, Transformation } from 'cloudinary-react';
 import React from 'react';
 import { useRef } from 'react';
 
 const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDisplay }) => {
 
-  const [bigPictureUrl, setBigPictureUrl] = React.useState("")
   const [prevIndex, setPrevIndex] = React.useState(null)
   const [nextIndex, setNextIndex] = React.useState(null)
-  const [isLoading, setIsLoading] = React.useState(false)
-  const [loadingIndex, setLoadingIndex] = React.useState(focusedImageIndex)
+
   const displayPictureEl = useRef()
 
   React.useEffect(
     () => {
 
-      const createBigPictureUrl = (image) => {
-        return "https://res.cloudinary.com/projects-images/image/upload/" + image.infos.public_id
-      }
-
       if (images && focusedImageIndex !== null) {
         displayPictureEl.current.style.left = '0%';
-        setBigPictureUrl(createBigPictureUrl(images[focusedImageIndex]))
 
         focusedImageIndex < images.length - 1 ?
           setNextIndex(focusedImageIndex + 1) :
@@ -33,11 +27,9 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
     }, [focusedImageIndex, images]
   )
 
-  const displayNewPicture = (e, index) => {
-    setLoadingIndex(index)
-    setIsLoading(true)
-    e.preventDefault()
+  const swapDisplayedImage = (e, index) => {
     e.stopPropagation()
+    setFocusedImageIndex(index)
   }
 
   const stopDisplay = (e) => {
@@ -49,23 +41,22 @@ const DisplayPicture = ({ focusedImageIndex, setFocusedImageIndex, images, setDi
     <div className='DisplayPicture' ref={displayPictureEl} onClick={e => stopDisplay(e)}>
 
       <div className='display-side-block link'>
-        {prevIndex !== null && <i className="fas fa-angle-left" onClick={e => displayNewPicture(e, prevIndex)}></i>}
+        {prevIndex !== null && <i className="fas fa-angle-left" onClick={e => swapDisplayedImage(e, prevIndex)}></i>}
       </div>
 
-      {bigPictureUrl &&
-        <div
-          className='big-picture'
-          style={{ backgroundImage: `url(${bigPictureUrl})` }}
-        >
-          <div
-            className={isLoading ? 'overlay animation-load-big-picture' : 'overlay'}
-            onAnimationIteration={e => setFocusedImageIndex(loadingIndex)} onAnimationEnd={e => setIsLoading(false)}
-          />
-        </div>
-      }
+      <CloudinaryContext cloudName="projects-images" className='big-picture'
+      >
+        {images !== null && images.map((image, i) => (
+          <div className='photo-lg-box' key={i}>
+            <Image publicId={image.infos.public_id} className={focusedImageIndex === i ? "photo-lg-active" : "photo-lg-hidden"} >
+              <Transformation width={Math.floor(window.innerWidth * 0.8)} height={Math.floor(window.innerHeight * 0.8)} crop="fit" gravity="center" />
+            </Image>
+          </div>
+        ))}
+      </CloudinaryContext>
 
       <div className='display-side-block link'>
-        {nextIndex !== null && <i className="fas fa-angle-right" onClick={e => displayNewPicture(e, nextIndex)}></i>}
+        {nextIndex !== null && <i className="fas fa-angle-right" onClick={e => swapDisplayedImage(e, nextIndex)}></i>}
       </div>
 
     </div>

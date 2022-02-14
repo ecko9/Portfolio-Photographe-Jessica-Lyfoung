@@ -4,7 +4,7 @@ import { fetchImagesError, fetchImagesRequest, getGallerySuccess } from 'redux/i
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-const GalleryImagesListBox = ({ imagesGrid, setImagesGrid, galleryIndex, setGalleryIndex, setFocusedImageIndex, setDisplay }) => {
+const GalleryImagesListBox = ({ imagesGrid, setImagesGrid, setGalleryIndex, setFocusedImageIndex, setDisplay }) => {
 
   const { name } = useParams()
   const galleries = useSelector(state => state.imagesReducer.galleries)
@@ -145,7 +145,7 @@ const GalleryImagesListBox = ({ imagesGrid, setImagesGrid, galleryIndex, setGall
             key={image.infos.public_id}
             imageIndex={i}
             image={image.infos}
-            height={Math.floor(window.screen.height * 0.4)}
+            height={Math.floor(window.screen.height * 0.5)}
             width={Math.floor(window.innerWidth / image.widthRatio.maxColumn * image.widthRatio.column)}
             setFocusedImageIndex={setFocusedImageIndex}
             setDisplay={setDisplay} />

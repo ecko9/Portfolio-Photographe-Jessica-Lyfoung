@@ -8,13 +8,11 @@ const GalleriesList = () => {
   const galleries = useSelector(state => state.imagesReducer.galleries)
 
   return (
-    <div className='GalleriesList'>
-      <CloudinaryContext cloudName="projects-images">
-        {galleries && galleries.map(gallery => (
-          <GalleryCard gallery={gallery} key={gallery.name} />
-        ))}
-      </CloudinaryContext>
-    </div>
+    <CloudinaryContext cloudName="projects-images" className="GalleriesList">
+      {galleries && galleries.map(gallery => (
+        <GalleryCard gallery={gallery} key={gallery.name} />
+      ))}
+    </CloudinaryContext>
   );
 };
 

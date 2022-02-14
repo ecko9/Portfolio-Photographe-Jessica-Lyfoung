@@ -12,7 +12,7 @@ const GalleryCard = ({ gallery }) => {
   const [image, setImage] = React.useState("")
   const galleries = useSelector(state => state.imagesReducer.galleries)
 
-  React.useLayoutEffect(
+  React.useEffect(
     () => {
 
 

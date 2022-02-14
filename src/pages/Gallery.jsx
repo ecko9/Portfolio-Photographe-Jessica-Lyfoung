@@ -58,7 +58,7 @@ const Gallery = () => {
       <CloudinaryContext cloudName="projects-images">
         <GalleryImagesListBox
           setImagesGrid={setImagesGrid} imagesGrid={imagesGrid}
-          setGalleryIndex={setGalleryIndex} galleryIndex={galleryIndex}
+          setGalleryIndex={setGalleryIndex}
           setFocusedImageIndex={setFocusedImageIndex} setDisplay={setDisplay}
         />
       </CloudinaryContext >

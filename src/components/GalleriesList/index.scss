@@ -1,7 +1,8 @@
 @import '../GalleryCard/index.scss';
 
-.GalleriesList, .GalleriesList > div {
+.GalleriesList {
   width: 100%;
+  min-height: 50vh;
 
   display: flex;
   flex-wrap: wrap;
