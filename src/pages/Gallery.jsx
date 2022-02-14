@@ -28,9 +28,9 @@ const Gallery = () => {
 
   React.useEffect(
     () => {
-      if (!isNavGalleriesFixed && scrollYPosition > 500)
+      if (!isNavGalleriesFixed && scrollYPosition > 300)
         setIsNavGalleriesFixed(true)
-      if (isNavGalleriesFixed && scrollYPosition <= 500)
+      if (isNavGalleriesFixed && scrollYPosition <= 300)
         setIsNavGalleriesFixed(false)
       return
     }, [scrollYPosition, isNavGalleriesFixed]
