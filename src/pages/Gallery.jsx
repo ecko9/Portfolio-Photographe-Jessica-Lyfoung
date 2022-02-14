@@ -39,7 +39,7 @@ const Gallery = () => {
   return (
     <div
       className='Gallery'
-      onWheel={e => setScrollYPosition(window.scrollY)}
+      onScroll={e => setScrollYPosition(window.scrollY)}
       style={isNavGalleriesFixed ? { marginTop: "100px" } : { marginTop: "0px" }}
     >
       {galleryIndex !== null &&
