@@ -3,7 +3,6 @@ import { CloudinaryContext } from 'cloudinary-react';
 import DisplayPicture from 'components/DisplayPicture';
 import NavGalleries from 'components/navigation/NavGalleries';
 import GalleryImagesListBox from 'components/GalleryImagesListBox';
-import { useRef } from 'react';
 
 const Gallery = () => {
 
@@ -15,7 +14,6 @@ const Gallery = () => {
 
   const [isNavGalleriesFixed, setIsNavGalleriesFixed] = React.useState(false)
   const [scrollYPosition, setScrollYPosition] = React.useState(0)
-  const galleryElement = useRef()
 
   React.useEffect(
     () => {
@@ -30,9 +28,9 @@ const Gallery = () => {
 
   React.useEffect(
     () => {
-      if (!isNavGalleriesFixed && scrollYPosition > 400)
+      if (!isNavGalleriesFixed && scrollYPosition > 500)
         setIsNavGalleriesFixed(true)
-      if (isNavGalleriesFixed && scrollYPosition <= 400)
+      if (isNavGalleriesFixed && scrollYPosition <= 500)
         setIsNavGalleriesFixed(false)
       return
     }, [scrollYPosition, isNavGalleriesFixed]
@@ -41,8 +39,7 @@ const Gallery = () => {
   return (
     <div
       className='Gallery'
-      ref={galleryElement}
-      onScroll={e => setScrollYPosition(galleryElement.current.scrollTop)}
+      onWheel={e => setScrollYPosition(window.scrollY)}
       style={isNavGalleriesFixed ? { marginTop: "100px" } : { marginTop: "0px" }}
     >
       {galleryIndex !== null &&
