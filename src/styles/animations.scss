@@ -58,10 +58,10 @@
 }
 
 .animation-swap-img-left {
-  animation: 1s linear 5s infinite both alternate animation-swap-img-left;
+  animation: 5s linear 5s infinite both alternate animation-swap-img-left;
 }
 .animation-swap-img-right {
-  animation: 1s linear 5s infinite both alternate animation-swap-img-right;
+  animation: 5s linear 5s infinite both alternate animation-swap-img-right;
 }
 .paused {
   animation-play-state: paused;

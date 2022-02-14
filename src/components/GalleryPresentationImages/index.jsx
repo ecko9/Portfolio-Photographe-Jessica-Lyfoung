@@ -1,15 +1,17 @@
 import React from 'react';
+import { useRef } from 'react';
 
 const GalleryPresentationImages = ({ images, index, swapDesign }) => {
 
   const [indexSwap, setIndexSwap] = React.useState(true)
   const [indexDisplayImage, setIndexDisplayImage] = React.useState(0)
   const [indexDisplayImage2, setIndexDisplayImage2] = React.useState(1)
+  const galleryPresentationImagesElement = useRef()
 
   const setNewAnimation = (e) => {
     swapDesign ?
-      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('animation-swap-img-right') :
-      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('animation-swap-img-left')
+      galleryPresentationImagesElement.current.classList.add('animation-swap-img-right') :
+      galleryPresentationImagesElement.current.classList.add('animation-swap-img-left')
   }
 
   const loadNextImage = (index) => {
@@ -22,7 +24,7 @@ const GalleryPresentationImages = ({ images, index, swapDesign }) => {
   }
 
   const displayAndLoad = (e) => {
-    document.querySelector(`div#GalleryPresentationImages-${index}`).classList.add('paused')
+    galleryPresentationImagesElement.current.classList.add('paused')
 
     indexSwap ?
       setIndexDisplayImage(loadNextImage(indexDisplayImage)) :
@@ -31,7 +33,7 @@ const GalleryPresentationImages = ({ images, index, swapDesign }) => {
     setIndexSwap(!indexSwap)
 
     setTimeout(() => {
-      document.querySelector(`div#GalleryPresentationImages-${index}`).classList.remove('paused')
+      galleryPresentationImagesElement.current.classList.remove('paused')
     }, 5000)
   }
 
@@ -42,7 +44,7 @@ const GalleryPresentationImages = ({ images, index, swapDesign }) => {
   return (
     <div
       className={swapDesign ? 'GalleryPresentationImages animation-load-img-right' : 'GalleryPresentationImages animation-load-img-left'}
-      id={`GalleryPresentationImages-${index}`}
+      ref={galleryPresentationImagesElement}
       onAnimationIteration={e => displayAndLoad(e)} onAnimationEnd={e => setNewAnimation(e)}
     >
       <div
