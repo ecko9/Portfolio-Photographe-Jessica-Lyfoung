@@ -5,18 +5,13 @@ const initialState = {
   error: '',
   galleries: [
     {
-      name: "Portraits et Personnes",
-      description: "test description 1",
+      name: "Série en Couleur",
+      description: "Une sélection de photographies en couleur.",
       images: []
     },
     {
-      name: "Paysages et Nature",
-      description: "test description 2",
-      images: []
-    },
-    {
-      name: "Photos Insolites",
-      description: "test description 3",
+      name: "Sur le Vif",
+      description: "",
       images: []
     },
     {
