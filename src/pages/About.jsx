@@ -7,7 +7,10 @@ const About = () => {
       <Loading />
 
       <div className='description-bg' >
-        <div className='img-description  animation-load-opacity' />
+        <div
+          className='img-description  animation-load-opacity'
+          style={{ backgroundImage: `url(https://res.cloudinary.com/projects-images/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_white,b_rgb:111415/v1644961273/portfolio-jessica-lyfoung/asset-portfolio/137227455_10223926667937652_3222228531901960305_n_dtqcue.jpg)` }}
+        />
 
         <div className='description animation-load-opacity'>
           <div className='description-txt'>
