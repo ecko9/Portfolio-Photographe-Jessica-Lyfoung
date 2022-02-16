@@ -31,7 +31,7 @@ const NavButtons = () => {
           <div className='NavButtonsBoxBg'>
           </div>
           <h3>
-            Galleries
+            Galeries
           </h3>
         </div>
       }
